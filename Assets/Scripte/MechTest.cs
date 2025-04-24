@@ -193,13 +193,9 @@ public class MechTest : MonoBehaviour
         rb.linearDamping = 2f;
         UpdateFuelUI();
         if(movement != Vector3.zero){
-            rb.linearVelocity = movement * DodgePower;
-            Quaternion Dashdir = Quaternion.LookRotation(MechModel.transform.rotation * Vector3.forward, transform.up);
-            //Vector3 Dashdir = Vector3.ProjectOnPlane(MechModel.transform.forward, transform.up).normalized;
-            Vector3 DashDir = Vector3.ClampMagnitude(MechModel.transform.rotation * new Vector3(Axis.x, 0, Axis.y), 1f);;
-            Anim.SetFloat("DodgeH", DashDir.x);
-            Anim.SetFloat("DodgeV", DashDir.z);
-            Debug.Log(DashDir);
+            rb.linearVelocity = movement * DodgePower;            
+            Anim.SetFloat("DodgeH", Axis.x);
+            Anim.SetFloat("DodgeV", Axis.y);
         }else{
             rb.linearVelocity = CameraplanarRot * new Vector3(0, 0, 1f) * DodgePower;
             Anim.SetFloat("DodgeV", 1f);
