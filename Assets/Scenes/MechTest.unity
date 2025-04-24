@@ -569,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: da948188213dc11499372c632756befd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: da948188213dc11499372c632756befd, type: 3}
       propertyPath: m_Controller
@@ -2423,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8c1bb85805aa9734db0043fb997a5325, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1342948525764391870, guid: 8c1bb85805aa9734db0043fb997a5325, type: 3}
       propertyPath: m_Layer
@@ -6353,6 +6353,8 @@ MonoBehaviour:
   DodgeTime: 0.3
   DodgeCooldown: 0.6
   DodgeCost: 1
+  DodgeKeyPress: 0.1
+  DodgeKeyTime: 0
   MechModel: {fileID: 235000674}
   Cam: {fileID: 1558446418}
   Shootscr: {fileID: 1312618080}
