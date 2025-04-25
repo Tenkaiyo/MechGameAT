@@ -20,7 +20,7 @@ public class MechCam : MonoBehaviour
     float collisionCusion = 0.15f, adjustdistance, adjustspeed = 5f; 
     Vector3 oldPos;
     bool delay;
-    float delaytimer, delaytime = .5f;
+    float delaytimer, delaytime = 1f;
     #endregion
 
     [Header("Cam rotation")]
@@ -84,7 +84,7 @@ public class MechCam : MonoBehaviour
         if(delay)
         {
             delaytimer += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, CamPar.position + transform.rotation * new Vector3(0,0, -smallestDistance), delaytimer * 2f);
+            transform.position = Vector3.Lerp(oldPos, CamPar.position + transform.rotation * new Vector3(0,0, -smallestDistance), Mathf.SmoothStep(0.0f,1.0f,delaytimer));
             if(delaytimer >= delaytime){
                 delay = false;
                 transform.localPosition = new Vector3(0, 0, -smallestDistance);
