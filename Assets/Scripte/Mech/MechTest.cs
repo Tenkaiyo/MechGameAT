@@ -8,15 +8,37 @@ public class MechTest : MonoBehaviour
     [Header("Movement")]
     #region
     public Rigidbody rb;
-    public float Speed, DashSpeed, maxSpeed;
-    bool dashing = false;
-
-
+    public float Speed;
     public Transform GroundRay;
     public LayerMask layerMaskGround;
     public Vector3 groundNormal;
     bool isGrounded;
     #endregion
+
+
+    [Header("Dash")]
+    #region
+    public float DashSpeed;
+    public float maxSpeed;
+    bool dashing = false;
+    #endregion
+
+    
+    [Header("Hover")]
+    #region
+    public float HoverJump;
+    #endregion
+
+
+    [Header("Dodge")]
+    #region 
+    public float DodgePower = 24f;
+    public float DodgeTime = .2f;
+    public float DodgeCooldown = 1f;
+    public float DodgeCost = 0.8f;
+    bool candodge = true;
+    #endregion
+
 
     [Header("Fuel")]
     #region 
@@ -25,23 +47,16 @@ public class MechTest : MonoBehaviour
     public float MaxFuel;
     #endregion
 
-    [Header("Dodge")]
-    #region 
-    public float DodgePower = 24f;
-    public float DodgeTime = .2f;
-    public float DodgeCooldown = 1f;
-    public float DodgeCost = 0.8f;
-    public float DodgeKeyPress = .1f, DodgeKeyTime;
-    bool candodge = true;
-    #endregion
 
     public GameObject MechModel;
     public GameObject Cam;
+    public MechCam mechCam;
     Quaternion CameraplanarRot;
     Vector3 movement;
     Vector2 Axis;
     public ShootScript Shootscr;
     public Animator Anim;
+
 
     [Header("Player Actions")]
     #region
@@ -86,7 +101,7 @@ public class MechTest : MonoBehaviour
     private void LateUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(GroundRay.transform.position, Vector3.down, out hit, 0.75f, layerMaskGround))
+        if (Physics.Raycast(GroundRay.transform.position, Vector3.down, out hit, 0.25f, layerMaskGround))
         {
             groundNormal = hit.normal;
             isGrounded = true;
@@ -97,38 +112,63 @@ public class MechTest : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isGrounded)
+        if(!isGrounded && !dashing)
         {
             rb.AddForce(Vector3.down* 8, ForceMode.Acceleration);
         }
 
+        #region Hover
+        //Hover
+        /*if(DashButton.ReadValue<float>() == 1f && Currfuel > 0f)
+        {
+            if(!dashing && isGrounded)
+            {
+                Debug.Log("Hover");
+                rb.AddForce(Vector3.up * HoverJump, ForceMode.Impulse);
+                dashing = true;
+                rb.useGravity = false;
+            }
+
+            if(dashing)
+            {
+                Debug.Log("Hovering");
+                Currfuel -= Time.deltaTime;
+                UpdateFuelUI();
+
+                if(movement != Vector3.zero)
+                {
+                    Vector3 groundedBoostVelocity = Vector3.ProjectOnPlane(movement,Vector3.up);
+                    rb.AddForce(groundedBoostVelocity * DashSpeed, ForceMode.Acceleration);
+                }
+                if (rb.linearVelocity.magnitude > maxSpeed)
+                    rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).normalized * maxSpeed;
+            }
+        }
+
+        if(dashing && (DashButton.ReadValue<float>() == 0f || Currfuel <= 0f))
+        {
+            Debug.Log("No More Hover");
+            dashing = false;
+            rb.useGravity = true;
+        }*/
+        #endregion
+
+
+        #region Dash
+        //Dash
         if(DashButton.ReadValue<float>() == 1f && Currfuel > 0f)
         {
-            DodgeKeyTime += Time.deltaTime;
             if(movement != Vector3.zero)
             {
-                dashing = true;
                 Currfuel -= Time.deltaTime;
                 UpdateFuelUI();
                 Vector3 groundedBoostVelocity = Vector3.ProjectOnPlane(movement,groundNormal.normalized);
                 rb.AddForce(groundedBoostVelocity * DashSpeed, ForceMode.Acceleration);
-            }else{
-                dashing = false;
             }
-
             if (rb.linearVelocity.magnitude > maxSpeed)
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
-        }else{
-            dashing = false;
         }
-        if(DashButton.ReadValue<float>() == 0f && DodgeKeyTime > 0 ){
-            if(DodgeKeyTime < DodgeKeyPress)
-            {
-                StartCoroutine(Dodge());
-            }
-
-            DodgeKeyTime = 0f;
-        }
+        #endregion
     }
 
     void Movement()
@@ -146,6 +186,7 @@ public class MechTest : MonoBehaviour
             return;
         }
 
+
         //Dash
         if(dashing)
         {
@@ -153,10 +194,12 @@ public class MechTest : MonoBehaviour
         }
 
         //Normal Walk
-        if(rb.linearVelocity.magnitude > Speed){
+        if(rb.linearVelocity.magnitude > Speed)
+        {
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, rb.linearVelocity.normalized, Time.deltaTime);
         }
-        if(rb.linearVelocity.magnitude <= Speed){
+        if(rb.linearVelocity.magnitude <= Speed)
+        {
             Vector3 groundedBoostVelocity = Vector3.ProjectOnPlane(movement,groundNormal);
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, groundedBoostVelocity * Speed, Time.deltaTime * Speed);
             //!isgrounded -> Gravitation reinballern
@@ -185,6 +228,7 @@ public class MechTest : MonoBehaviour
     public IEnumerator Dodge()
     {
         candodge = false;
+        mechCam.CamDelay();
         Currfuel -= DodgeCost;
         rb.linearVelocity = Vector3.zero;
         rb.useGravity = false;
@@ -200,12 +244,16 @@ public class MechTest : MonoBehaviour
             rb.linearVelocity = CameraplanarRot * new Vector3(0, 0, 1f) * DodgePower;
             Anim.SetFloat("DodgeV", 1f);
         }
+
         yield return new WaitForSeconds(DodgeTime);
+
         rb.useGravity = true;
         Anim.SetFloat("DodgeH", 0f);
         Anim.SetFloat("DodgeV", 0f);
         rb.linearDamping = damping;
+
         yield return new WaitForSeconds(DodgeCooldown);
+
         candodge = true;
     }
 

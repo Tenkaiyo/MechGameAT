@@ -21,10 +21,12 @@ public class ShootScript : MonoBehaviour
 
     [Header("UI")]
     public Text AmmoText;
+    public RectTransform Crosshair;
 
     void Start()
     {
         SupplyAmmo();
+        Crosshair.sizeDelta = new Vector2(EquipedGun.FireSpread*20,EquipedGun.FireSpread*20);
     }
 
     public void Shoot()

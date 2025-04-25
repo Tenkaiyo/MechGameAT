@@ -102,7 +102,7 @@ public class PlayerCam : MonoBehaviour
         }
         if(adjustdistance > smallestDistance)
         {
-            smallestDistance += 1f/1000 * adjustspeed;
+            smallestDistance += Time.deltaTime* adjustspeed;
         }
 
         transform.localPosition = new Vector3(0, 0, -smallestDistance);

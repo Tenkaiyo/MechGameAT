@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de706e22d002f99478fa701c9238834b, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  MinDamage: 2
-  MaxDamage: 10
-  nearDistance: 15
-  farDistance: 30
+  MinDamage: 6
+  MaxDamage: 25
+  nearDistance: 10
+  farDistance: 25
   range: 60
   ReflectionCount: 0
   ReflectRange: 50
   fireRate: 0.8
   BulletSpeed: 100
-  FireSpread: 5
-  BulletsPerFire: 7
+  FireSpread: 8
+  BulletsPerFire: 8
   MaxAmmo: 30
   ImpactParticle: {fileID: 691528096246745178, guid: 2391a0840543d4a4fa8987d7c49106dd, type: 3}
   BloodParticle: {fileID: 5255749276354896226, guid: 6bcca1c4284bad349b1df83ebc886a87, type: 3}
