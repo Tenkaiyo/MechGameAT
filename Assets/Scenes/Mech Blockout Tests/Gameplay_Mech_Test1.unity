@@ -23763,7 +23763,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35
-  m_Height: 1.55
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &1321388869
@@ -28412,14 +28412,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamPar: {fileID: 1998322899}
-  cam: {fileID: 0}
+  cam: {fileID: 1558446420}
   MechMove: {fileID: 0}
   CamDistance: 1
   CameraRotationSpeed: 0.5
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
-  maxDelay: 0
+  maxDelay: 0.1
   MouseMove:
     m_Name: Mouse Move
     m_Type: 0
