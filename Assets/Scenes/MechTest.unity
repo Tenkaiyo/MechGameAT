@@ -9307,7 +9307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e2a24720f7b44493b3ce683fae8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquipedGun: {fileID: 11400000, guid: 0f7bf4ed0e9c39c40bbee0dc4dd8db0d, type: 2}
+  EquipedGun: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
   MuzzleFlash: {fileID: 1787684294}
   BulletSpawnPoint: {fileID: 50893991}
   RayLayer:
@@ -10972,12 +10972,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamPar: {fileID: 1998322899}
+  cam: {fileID: 1558446420}
   MechMove: {fileID: 0}
   CamDistance: 1
   CameraRotationSpeed: 0.5
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
+  maxDelay: 0.2
   MouseMove:
     m_Name: Mouse Move
     m_Type: 0
