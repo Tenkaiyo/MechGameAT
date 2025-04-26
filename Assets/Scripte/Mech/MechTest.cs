@@ -214,7 +214,14 @@ public class MechTest : MonoBehaviour
         }
         if(AimButton.ReadValue<float>() == 1f || ShootButton.ReadValue<float>() == 1f)
         {
-            MechModel.transform.rotation = Quaternion.Slerp(MechModel.transform.rotation, CameraplanarRot, 90f * Time.deltaTime);
+            //*if(MechModel.transform.rotation != CameraplanarRot)
+            {
+                //MechModel.transform.rotation = Quaternion.Slerp(MechModel.transform.rotation, CameraplanarRot, 90f * Time.deltaTime);
+            }
+            //else
+            {
+                MechModel.transform.rotation = CameraplanarRot;
+            }
         }
     }
 
