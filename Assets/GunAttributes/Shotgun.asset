@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de706e22d002f99478fa701c9238834b, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  MinDamage: 6
+  MinDamage: 7
   MaxDamage: 25
   nearDistance: 10
   farDistance: 25
