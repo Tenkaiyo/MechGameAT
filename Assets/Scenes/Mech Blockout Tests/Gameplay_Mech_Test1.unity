@@ -25017,6 +25017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatrolEnemyTest
       objectReference: {fileID: 0}
+    - target: {fileID: 1042749801546708568, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1687809904699410925, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: ShootScr
       value: 
@@ -31467,7 +31471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1835724650
 MonoBehaviour:
   m_ObjectHideFlags: 0
