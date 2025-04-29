@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   GunType: 1
-  MinDamage: 7
-  MaxDamage: 25
-  nearDistance: 10
-  farDistance: 25
+  MinDamage: 3
+  MaxDamage: 15
+  nearDistance: 8
+  farDistance: 15
   range: 60
   ReflectionCount: 0
   ReflectRange: 50
-  fireRate: 0.8
+  fireRate: 1
   BulletSpeed: 100
-  FireSpread: 8
-  BulletsPerFire: 8
+  FireSpread: 12
+  BulletsPerFire: 5
   MaxAmmo: 30
   InfiniteAmmo: 0
   ImpactParticle: {fileID: 691528096246745178, guid: 2391a0840543d4a4fa8987d7c49106dd, type: 3}
