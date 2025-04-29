@@ -6,6 +6,13 @@ using UnityEngine;
 public class GunAttributes : ScriptableObject
 {
 
+    public GunTypes GunType;
+    public enum GunTypes{
+        HitScan,
+        HitscanDelay,
+        Projectile,
+    }
+
     [Header("Gun Stats")]
     public float MinDamage = 2f;
     public float MaxDamage = 10f;
@@ -21,7 +28,8 @@ public class GunAttributes : ScriptableObject
     [Space]
     public int BulletsPerFire = 1;
     public int MaxAmmo = 30;
-
+    public bool InfiniteAmmo = false;
+    
 
     [Header("Gun Prefabs")]
     public GameObject ImpactParticle;

@@ -11,7 +11,6 @@ public class MechCam : MonoBehaviour
     #region
     public Transform CamPar;
     public Camera cam;
-    public MechTest MechMove;
     [System.NonSerialized] public float mouseX, mouseY;
     [System.NonSerialized] public float smallestDistance;
     public float CamDistance;
@@ -52,6 +51,11 @@ public class MechCam : MonoBehaviour
         normFov = cam.fieldOfView;
         currFov = normFov;
         maxFov = normFov + additionalFov;
+    }
+
+    public void SetMouseSens(float sens)
+    {
+        CameraRotationSpeed = sens;
     }
 
     void LateUpdate()

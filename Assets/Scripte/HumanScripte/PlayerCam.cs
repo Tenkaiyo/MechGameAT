@@ -46,6 +46,11 @@ public class PlayerCam : MonoBehaviour
     }
 
 
+    public void SetMouseSens(float sens)
+    {
+        CameraRotationSpeed = sens;
+    }
+
     void LateUpdate()
     {
         if(Types == CamTypes.ThirdPerson)

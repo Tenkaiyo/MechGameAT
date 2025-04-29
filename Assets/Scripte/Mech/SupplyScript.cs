@@ -9,6 +9,7 @@ public class SupplyScript : MonoBehaviour
             Debug.Log("Supplied Ammo and Fuel");
             other.SendMessage("SupplyFuel");
             other.SendMessage("SupplyAmmo");
+            other.SendMessage("SupplyHealth");
         }
     }
 }

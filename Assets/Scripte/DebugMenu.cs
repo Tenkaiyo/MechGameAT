@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DebugMenu : MonoBehaviour
 {
     public GameObject DebugMen;
-    public PlayerCam playercam;
+    public GameObject playercam;
     public Slider Camslider;
 
     public InputAction DebugButton;
@@ -28,7 +28,7 @@ public class DebugMenu : MonoBehaviour
 
     void Start()
     {
-        playercam.CameraRotationSpeed = PlayerPrefs.GetFloat("CamSens", 0.3f);
+        playercam.SendMessage("SetMouseSens", PlayerPrefs.GetFloat("CamSens", 0.3f));
         Camslider.value = PlayerPrefs.GetFloat("CamSens", 0.3f);
     }
 
@@ -50,7 +50,7 @@ public class DebugMenu : MonoBehaviour
 
     public void MouseSens(float sens)
     {
-        playercam.CameraRotationSpeed = sens;
+        playercam.SendMessage("SetMouseSens", PlayerPrefs.GetFloat("CamSens", 0.3f));
         PlayerPrefs.SetFloat("CamSens", sens);
     }
 
