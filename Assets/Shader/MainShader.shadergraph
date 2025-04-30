@@ -4040,7 +4040,7 @@
     "m_Title": "ShadowColor Calculation",
     "m_Position": {
         "x": 418.0,
-        "y": 662.0
+        "y": 661.9999389648438
     }
 }
 
@@ -5919,8 +5919,8 @@
     "m_ObjectId": "ad9e91ef9f62410188c3e425ffccf616",
     "m_Title": "WhiteHighlight Calculation",
     "m_Position": {
-        "x": 1146.0,
-        "y": 1293.0
+        "x": 1145.9998779296875,
+        "y": 1292.9998779296875
     }
 }
 
