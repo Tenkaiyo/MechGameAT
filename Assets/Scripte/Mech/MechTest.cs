@@ -46,7 +46,7 @@ public class MechTest : MonoBehaviour
     float Currfuel; 
     public float MaxFuel;
     public float fuelresetSpeed;
-    private float resetfueltimer, fueldelay = 0.8f, fueldelayMax = 1.2f;
+    private float resetfueltimer, fueldelay = 0.4f, fueldelayMax = 1f;
     #endregion
 
 
