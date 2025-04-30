@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunType: 1
   MinDamage: 5
-  MaxDamage: 15
+  MaxDamage: 10
   nearDistance: 5
-  farDistance: 10
-  range: 60
+  farDistance: 20
+  range: 40
   ReflectionCount: 0
   ReflectRange: 10
   fireRate: 0.2

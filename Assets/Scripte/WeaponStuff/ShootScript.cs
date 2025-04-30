@@ -62,7 +62,7 @@ public class ShootScript : MonoBehaviour
 
     public IEnumerator ShootEnemyDelay(Vector3 Target)
     {
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(.2f);
 
         Vector3 shootDirection = (Target + new Vector3(0,1f,0)) - RayTrans.position;
 

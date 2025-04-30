@@ -11,6 +11,7 @@ public class GunAttributes : ScriptableObject
         HitScan,
         HitscanDelay,
         Projectile,
+        Laser,
     }
 
     [Header("Gun Stats")]

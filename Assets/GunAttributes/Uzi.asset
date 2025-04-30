@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunType: 1
   MinDamage: 1
-  MaxDamage: 10
+  MaxDamage: 15
   nearDistance: 20
   farDistance: 40
-  range: 80
+  range: 50
   ReflectionCount: 2
   ReflectRange: 20
   fireRate: 0.1
   BulletSpeed: 150
-  FireSpread: 2
+  FireSpread: 3
   BulletsPerFire: 1
   MaxAmmo: 100
   InfiniteAmmo: 0
