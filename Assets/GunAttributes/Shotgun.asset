@@ -20,7 +20,7 @@ MonoBehaviour:
   range: 60
   ReflectionCount: 0
   ReflectRange: 50
-  fireRate: 1
+  fireRate: 0.6
   BulletSpeed: 100
   FireSpread: 12
   BulletsPerFire: 5

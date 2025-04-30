@@ -1,4 +1,5 @@
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,17 +7,19 @@ public class EnemyTest : MonoBehaviour
 {
     [HideInInspector]
     public NavMeshAgent NavAgent;
+    public float radius;
+    public LayerMask TargetMask;
     public Transform[] patrolPoints;
     private int curPoint = 0;
     private Transform player;
     public ShootScript ShootScr;
-    private int interval = 5;
+    private int interval = 10;
 
 
     void Awake()
     {
         NavAgent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if(patrolPoints.Length > 0)
         {
@@ -30,15 +33,20 @@ public class EnemyTest : MonoBehaviour
     {
         if (Time.frameCount % interval == 0)
         {
-            Attack();
+            Collider[] rangeCheck = Physics.OverlapSphere(transform.position, radius, TargetMask);
+            if(rangeCheck.Length != 0)
+            {
+                player = rangeCheck[0].transform;
+                Attack();
+                NavAgent.SetDestination(player.position);
+                return;
+            }
 
             if(patrolPoints.Length > 0)
             {
                 PointDistanceCheck();
-                return;
             }
 
-            NavAgent.SetDestination(player.position);
         }
     }
 
@@ -68,4 +76,10 @@ public class EnemyTest : MonoBehaviour
         curPoint = (curPoint + 1) % patrolPoints.Length;
         NavAgent.SetDestination(patrolPoints[curPoint].position);
     }
+
+   /* private void OnSceneGUI()
+    {
+        Handles.color = Color.white;
+        Handles.DrawWireArc(transform.position, Vector3.up, Vector3.forward, 360, radius);
+    }*/
 }

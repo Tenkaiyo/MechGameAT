@@ -42,6 +42,10 @@ public class CameraTrigger : MonoBehaviour
                     Debug.Log(NewCameraPos.localRotation.eulerAngles.x);
                     playcam.smallestDistance = Offset.z;
                 }
+                else
+                {
+                    playr.oldCamPerspective = false;
+                }
                 playcam.Types = PlayerCam.CamTypes.ThirdPerson;
                 Debug.Log("Third Person Baby");
             }

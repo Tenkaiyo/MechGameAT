@@ -45,6 +45,8 @@ public class MechTest : MonoBehaviour
     public Slider FuelSlider;
     float Currfuel; 
     public float MaxFuel;
+    public float fuelresetSpeed;
+    private float resetfueltimer, fueldelay = 0.8f, fueldelayMax = 1.2f;
     #endregion
 
 
@@ -94,6 +96,7 @@ public class MechTest : MonoBehaviour
     void Update()
     {
         Movement();
+        FuelRefill();
         Shooting();
     }
 
@@ -161,6 +164,9 @@ public class MechTest : MonoBehaviour
             if(movement != Vector3.zero)
             {
                 Currfuel -= Time.deltaTime;
+                resetfueltimer = fueldelay;
+                if(Currfuel <= 0)
+                    resetfueltimer = fueldelayMax;
                 UpdateFuelUI();
                 Vector3 groundedBoostVelocity = Vector3.ProjectOnPlane(movement,groundNormal.normalized);
                 rb.AddForce(groundedBoostVelocity * DashSpeed, ForceMode.Acceleration);
@@ -237,6 +243,9 @@ public class MechTest : MonoBehaviour
         candodge = false;
         mechCam.CamDelay();
         Currfuel -= DodgeCost;
+        resetfueltimer = fueldelay;
+        if(Currfuel <= 0)
+            resetfueltimer = fueldelayMax;
         rb.linearVelocity = Vector3.zero;
         rb.useGravity = false;
 
@@ -264,6 +273,19 @@ public class MechTest : MonoBehaviour
         candodge = true;
     }
 
+    void FuelRefill()
+    {
+        if(resetfueltimer > 0)
+        {
+            resetfueltimer -= Time.deltaTime;
+        }
+
+        if(resetfueltimer <= 0 && Currfuel < MaxFuel)
+        {
+            Currfuel += Time.deltaTime * fuelresetSpeed;
+            UpdateFuelUI();
+        }
+    }
     public void SupplyFuel()
     {
         FuelSlider.maxValue = MaxFuel;

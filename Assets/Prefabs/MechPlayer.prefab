@@ -554,6 +554,7 @@ MonoBehaviour:
   DodgeCost: 1
   FuelSlider: {fileID: 0}
   MaxFuel: 20
+  fuelresetSpeed: 0
   MechModel: {fileID: 5919877774876774645}
   Cam: {fileID: 1102863638873432570}
   mechCam: {fileID: 2018839805012873881}
@@ -694,7 +695,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 7289218756653267121}
   RayLayer:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 179
   RayTrans: {fileID: 3045473269009856978}
   AmmoText: {fileID: 0}
   Crosshair: {fileID: 0}
