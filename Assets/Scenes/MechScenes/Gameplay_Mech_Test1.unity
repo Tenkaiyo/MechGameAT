@@ -31462,10 +31462,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6613303260398002451, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33139,7 +33135,7 @@ PrefabInstance:
       objectReference: {fileID: 493016246}
     - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: fuelresetSpeed
-      value: 1.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4182783044986932699, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: HealthSlider

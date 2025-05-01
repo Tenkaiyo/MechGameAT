@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,8 @@ public class HealthScript : MonoBehaviour
             CurrHealth = 0;
             if(gameObject.tag != "Player")
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
                 return;
             }
 

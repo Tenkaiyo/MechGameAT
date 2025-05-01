@@ -135,7 +135,7 @@ public class ShootScript : MonoBehaviour
         {
             //Hitobj.SendMessage("Damage", BulletDamage);
             ((HealthScript)Entity.GetComponent(typeof(HealthScript))).Damage(BulletDamage);
-            Debug.Log(Dist + "danage" + BulletDamage);
+            Debug.Log(Dist + "damage" + BulletDamage);
             Instantiate(EquipedGun.BloodParticle, Pos, Quaternion.LookRotation(Rot));
         }
         else if(Hitbox != null)
