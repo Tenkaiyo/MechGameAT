@@ -9,7 +9,7 @@ public class ShootScript : MonoBehaviour
     public bool IsPlayer = false;
 
     private float nextTimeToFire = 0f;
-    private int currentAmmo;
+    private float currentAmmo;
 
     public ParticleSystem MuzzleFlash;
     public Transform BulletSpawnPoint;
@@ -24,6 +24,12 @@ public class ShootScript : MonoBehaviour
     public Text AmmoText;
     public RectTransform Crosshair;
 
+    //LaserStuff
+    private GameObject ImpactParticle;
+    private LineRenderer LaserLineRender;
+
+
+
     void Start()
     {
         if(IsPlayer)
@@ -35,16 +41,29 @@ public class ShootScript : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time < nextTimeToFire || currentAmmo <= 0 && !EquipedGun.InfiniteAmmo)
+        if(EquipedGun.GunType != GunAttributes.GunTypes.Laser)
         {
-            return;
+            if (Time.time < nextTimeToFire || currentAmmo <= 0 && !EquipedGun.InfiniteAmmo)
+            {
+                return;
+            }
+            currentAmmo -= 1;
+            UpdateAmmoUI();
+            nextTimeToFire = Time.time + EquipedGun.fireRate;
+            MuzzleFlash.Play();
         }
-        currentAmmo -= 1;
-        UpdateAmmoUI();
-        nextTimeToFire = Time.time + EquipedGun.fireRate;
-        MuzzleFlash.Play();
-        Vector3 shootDirection = RayTrans.transform.forward;
 
+        if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
+        {
+            if(currentAmmo <= 0 && !EquipedGun.InfiniteAmmo)
+            {
+                return;
+            }
+            currentAmmo -= Time.deltaTime * EquipedGun.fireRate;
+            UpdateAmmoUI();
+        }
+
+        Vector3 shootDirection = RayTrans.transform.forward;
         RaycastCalc(shootDirection);
     }
 
@@ -59,7 +78,6 @@ public class ShootScript : MonoBehaviour
 
         StartCoroutine(ShootEnemyDelay(Target));
     }
-
     public IEnumerator ShootEnemyDelay(Vector3 Target)
     {
         yield return new WaitForSeconds(.2f);
@@ -81,28 +99,37 @@ public class ShootScript : MonoBehaviour
 
             if (Physics.Raycast(RayTrans.transform.position, shootDirection, out hit, EquipedGun.range, RayLayer))
             {
-                Debug.Log(hit.transform.name);
-
                 if(EquipedGun.GunType == GunAttributes.GunTypes.HitscanDelay)
                 {
-                    TrailRenderer trail = Instantiate(EquipedGun.BulletTrail,BulletSpawnPoint.position, Quaternion.identity);
+                    Debug.Log(hit.transform.name);
+                    TrailRenderer trail = Instantiate(EquipedGun.BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
                     StartCoroutine(SpawnTrail(trail,RayTrans.transform.position, hit.point, hit.normal, hit.distance, hit.collider.transform.gameObject, hit.transform.gameObject, EquipedGun.ReflectionCount)); 
+                }
+
+                if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
+                {
+                    Laser(hit.point, hit.normal, hit.distance, hit.collider.transform.gameObject, hit.transform.gameObject);
                 }
             }
             else
             {
-                Debug.Log("Hit nothing... cringe");
-
                 if(EquipedGun.GunType == GunAttributes.GunTypes.HitscanDelay)
                 {
+                    Debug.Log("Hit nothing... cringe");
                     TrailRenderer trail = Instantiate(EquipedGun.BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
                     StartCoroutine(SpawnTrail(trail,RayTrans.transform.position,RayTrans.transform.position + shootDirection * EquipedGun.range, RayTrans.transform.eulerAngles, EquipedGun.range, null, null, EquipedGun.ReflectionCount)); 
+                }
+
+                if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
+                {
+                    Laser(RayTrans.transform.position + shootDirection * EquipedGun.range, RayTrans.transform.eulerAngles, EquipedGun.range, null, null);
                 }
             }
         }
     }
 
 
+    //Hitscan Delay
     private IEnumerator SpawnTrail(TrailRenderer Trail,Vector3 CamPos, Vector3 Pos, Vector3 Rot, float distance, GameObject Hitbox, GameObject Entity, int Reflects)
     {
         #region MoveBullet
@@ -118,24 +145,13 @@ public class ShootScript : MonoBehaviour
         #endregion
 
 
-        #region Calculate Damage
-        float Dist = 0;
-        if(distance > EquipedGun.nearDistance && distance < EquipedGun.farDistance){
-            Dist = (distance - EquipedGun.nearDistance) / (EquipedGun.farDistance - EquipedGun.nearDistance);
-        }
-        if(distance > EquipedGun.farDistance)
-        {
-            Dist = 1f;
-        }
-        float BulletDamage = Dist * EquipedGun.MinDamage + (1f - Dist) * EquipedGun.MaxDamage;
-        #endregion
-
-
         if(Hitbox != null && Hitbox.tag == "Hitbox")
         {
             //Hitobj.SendMessage("Damage", BulletDamage);
-            ((HealthScript)Entity.GetComponent(typeof(HealthScript))).Damage(BulletDamage);
-            Debug.Log(Dist + "damage" + BulletDamage);
+            float damage = CalcDamage(distance);
+
+            ((HealthScript)Entity.GetComponent(typeof(HealthScript))).Damage(damage);
+            Debug.Log("damage: " + damage);
             Instantiate(EquipedGun.BloodParticle, Pos, Quaternion.LookRotation(Rot));
         }
         else if(Hitbox != null)
@@ -161,7 +177,52 @@ public class ShootScript : MonoBehaviour
 
         Destroy(Trail.gameObject, Trail.time);
         
+    }
 
+
+    //Laser
+    private void Laser(Vector3 Pos, Vector3 Rot, float distance, GameObject Hitbox, GameObject Entity)
+    {
+        if(LaserLineRender == null)
+        {
+            GameObject LaserlineGO = Instantiate(EquipedGun.BulletLine);
+            LaserLineRender = (LineRenderer)LaserlineGO.GetComponent(typeof(LineRenderer));
+        }
+        LaserLineRender.SetPosition(0, BulletSpawnPoint.position);
+        LaserLineRender.SetPosition(1, Pos);
+
+
+        if(Hitbox != null && Hitbox.tag == "Hitbox")
+        {   
+            float damage = CalcDamage(distance);
+            damage = damage * Time.deltaTime;
+
+            ((HealthScript)Entity.GetComponent(typeof(HealthScript))).Damage(damage);
+            //Instantiate(EquipedGun.BloodParticle, Pos, Quaternion.LookRotation(Rot));
+        }
+        else if(Hitbox != null)
+        {
+            if(ImpactParticle == null)
+            {
+                ImpactParticle = Instantiate(EquipedGun.ImpactParticle);
+            }
+            ImpactParticle.transform.position = Pos;
+            ImpactParticle.transform.rotation = Quaternion.LookRotation(Rot);
+        }
+    }
+
+    float CalcDamage(float distance)
+    {
+        float Dist = 0;
+        if(distance > EquipedGun.nearDistance && distance < EquipedGun.farDistance){
+            Dist = (distance - EquipedGun.nearDistance) / (EquipedGun.farDistance - EquipedGun.nearDistance);
+        }
+        if(distance > EquipedGun.farDistance)
+        {
+            Dist = 1f;
+        }
+        float BulletDamage = Dist * EquipedGun.MinDamage + (1f - Dist) * EquipedGun.MaxDamage;
+        return BulletDamage;
     }
 
     public void SupplyAmmo()
@@ -172,6 +233,6 @@ public class ShootScript : MonoBehaviour
 
     void UpdateAmmoUI()
     {
-        AmmoText.text = currentAmmo + "";
+        AmmoText.text = currentAmmo.ToString("f0");
     }
 }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de706e22d002f99478fa701c9238834b, type: 3}
+  m_Name: LaserGun
+  m_EditorClassIdentifier: 
+  GunType: 3
+  MinDamage: 10
+  MaxDamage: 80
+  nearDistance: 20
+  farDistance: 40
+  range: 100
+  ReflectionCount: 0
+  ReflectRange: 10
+  fireRate: 5
+  BulletSpeed: 150
+  FireSpread: 0
+  BulletsPerFire: 1
+  MaxAmmo: 30
+  InfiniteAmmo: 0
+  ImpactParticle: {fileID: 691528096246745178, guid: 1fb73360f17b22c438c25685b742cb6c, type: 3}
+  BloodParticle: {fileID: 0}
+  BulletTrail: {fileID: 0}
+  BulletLine: {fileID: 4107774278668115341, guid: 04ae65f899c38a24bb71914af40dfe1f, type: 3}
