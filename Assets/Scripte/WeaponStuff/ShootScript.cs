@@ -26,6 +26,7 @@ public class ShootScript : MonoBehaviour
 
     //LaserStuff
     private GameObject ImpactParticle;
+    private GameObject BloodImpactParticle;
     private LineRenderer LaserLineRender;
 
 
@@ -194,6 +195,13 @@ public class ShootScript : MonoBehaviour
 
         if(Hitbox != null && Hitbox.tag == "Hitbox")
         {   
+            if(BloodImpactParticle == null)
+            {
+                BloodImpactParticle = Instantiate(EquipedGun.BloodParticle);
+            }
+            BloodImpactParticle.transform.position = Pos;
+            BloodImpactParticle.transform.rotation = Quaternion.LookRotation(Rot);
+
             float damage = CalcDamage(distance);
             damage = damage * Time.deltaTime;
 

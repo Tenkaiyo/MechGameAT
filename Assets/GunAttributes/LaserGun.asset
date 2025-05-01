@@ -22,10 +22,10 @@ MonoBehaviour:
   ReflectRange: 10
   fireRate: 5
   BulletSpeed: 150
-  FireSpread: 0
+  FireSpread: 1
   BulletsPerFire: 1
   MaxAmmo: 30
-  InfiniteAmmo: 0
+  InfiniteAmmo: 1
   ImpactParticle: {fileID: 691528096246745178, guid: 1fb73360f17b22c438c25685b742cb6c, type: 3}
   BloodParticle: {fileID: 0}
   BulletTrail: {fileID: 0}
