@@ -19474,7 +19474,7 @@ MonoBehaviour:
   - {fileID: 367259870}
   - {fileID: 312935358}
   - {fileID: 1263245097}
-  TravSpeed: 3
+  TravSpeed: 3.5
 --- !u!4 &1200268614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -778611468251357502, guid: caa6ba0d24d8d0246b56f9f37b2f674c, type: 3}
