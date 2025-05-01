@@ -7,6 +7,7 @@ public class HealthScript : MonoBehaviour
 
     public float MaxHealth, CurrHealth;
     public Slider HealthSlider;
+    public MonoBehaviour EnemyScript;
 
     void Start()
     {
@@ -21,6 +22,11 @@ public class HealthScript : MonoBehaviour
 
     public void Damage(float damage)
     {
+        if(CurrHealth == MaxHealth && EnemyScript != null)
+        {
+            EnemyScript.SendMessage("GotHit");
+        }
+
         CurrHealth -= damage;
         UpdateHealthUI();
 

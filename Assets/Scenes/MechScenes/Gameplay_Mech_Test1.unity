@@ -279,6 +279,7 @@ MonoBehaviour:
   MaxHealth: 1000
   CurrHealth: 0
   HealthSlider: {fileID: 0}
+  EnemyScript: {fileID: 0}
 --- !u!136 &7446394
 CapsuleCollider:
   m_ObjectHideFlags: 0

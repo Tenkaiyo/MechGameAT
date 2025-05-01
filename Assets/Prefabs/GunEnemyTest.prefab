@@ -549,7 +549,7 @@ NavMeshAgent:
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 13
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -593,6 +593,7 @@ MonoBehaviour:
   MaxHealth: 180
   CurrHealth: 0
   HealthSlider: {fileID: 0}
+  EnemyScript: {fileID: 1687809904699410925}
 --- !u!114 &1687809904699410925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,10 +608,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NavAgent: {fileID: 0}
   radius: 25
+  angle: 120
+  distance: 12
+  patrolPoints: []
   TargetMask:
     serializedVersion: 2
     m_Bits: 8
-  patrolPoints: []
+  ObstructionMask:
+    serializedVersion: 2
+    m_Bits: 1
+  RaycastTrans: {fileID: 4898943640535443580}
   ShootScr: {fileID: 3105047369030859223}
 --- !u!114 &3105047369030859223
 MonoBehaviour:
@@ -1292,7 +1299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4898943640535443580}
   m_Layer: 7
-  m_Name: GameObject
+  m_Name: RaycastTrans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
