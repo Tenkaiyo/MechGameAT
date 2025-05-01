@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,7 +8,7 @@ public class EnemyTest : MonoBehaviour
 {
     [HideInInspector]
     public NavMeshAgent NavAgent;
-    public float radius, angle, distance;
+    public float radius, angle, distance, rotationSpeed;
     public Transform[] patrolPoints;
     private int curPoint = 0;
     public LayerMask TargetMask, ObstructionMask;
@@ -47,21 +48,26 @@ public class EnemyTest : MonoBehaviour
             Vector3 directionToTarget = ((player.position + new Vector3(0,1f,0)) - RaycastTrans.position).normalized;
             float distanceToTarget = Vector3.Distance(RaycastTrans.position, player.position + new Vector3(0,1f,0));
 
-            /*if(Vector3.Angle(transform.position, directionToTarget) < angle /2)
-            {
+                if(!Physics.Raycast(RaycastTrans.position, directionToTarget, distanceToTarget, ObstructionMask))
+                {
+                    if(Vector3.Angle(RaycastTrans.forward, directionToTarget) < angle /2)
+                    {
+                        Attack();
+                    }
 
-            }*/
+                    if(Vector3.Angle(RaycastTrans.forward, directionToTarget) > angle /4)
+                    {
+                        Quaternion LookRotation = Quaternion.LookRotation(directionToTarget);
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, LookRotation, Time.deltaTime * rotationSpeed * interval * 10);
+                    }
+                }
+                else
+                {
+                    NavAgent.isStopped = false;
+                    NavAgent.SetDestination(player.position);
+                    return;
+                } 
 
-            if(!Physics.Raycast(RaycastTrans.position, directionToTarget, distanceToTarget, ObstructionMask))
-            {
-                Attack();
-            }
-            else
-            {
-                NavAgent.isStopped = false;
-                NavAgent.SetDestination(player.position);
-                return;
-            }
             if(distanceToTarget > distance)
             {
                 NavAgent.isStopped = false;

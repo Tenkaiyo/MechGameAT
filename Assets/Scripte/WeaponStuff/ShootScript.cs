@@ -71,13 +71,13 @@ public class ShootScript : MonoBehaviour
     }
 
 
-    void RaycastCalc(Vector3 shootDirection)
+    void RaycastCalc(Vector3 ShootDirection)
     {
         for (int i = 0; i < EquipedGun.BulletsPerFire; i++)
         {
 
             RaycastHit hit;
-            shootDirection = shootDirection + RayTrans.TransformDirection(Random.insideUnitCircle * (EquipedGun.FireSpread / 100f));
+            Vector3 shootDirection = ShootDirection + RayTrans.TransformDirection(Random.insideUnitCircle * (EquipedGun.FireSpread / 100f));
 
             if (Physics.Raycast(RayTrans.transform.position, shootDirection, out hit, EquipedGun.range, RayLayer))
             {

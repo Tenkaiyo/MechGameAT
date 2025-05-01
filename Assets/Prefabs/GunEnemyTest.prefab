@@ -610,6 +610,7 @@ MonoBehaviour:
   radius: 25
   angle: 120
   distance: 12
+  rotationSpeed: 8
   patrolPoints: []
   TargetMask:
     serializedVersion: 2
