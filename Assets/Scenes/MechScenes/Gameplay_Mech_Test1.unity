@@ -33122,6 +33122,10 @@ PrefabInstance:
       propertyPath: Crosshair
       value: 
       objectReference: {fileID: 58380964}
+    - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
     - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: MaxFuel
       value: 8
