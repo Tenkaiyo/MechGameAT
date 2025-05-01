@@ -219,6 +219,7 @@ public class ShootScript : MonoBehaviour
         }
     }
 
+
     float CalcDamage(float distance)
     {
         float Dist = 0;
