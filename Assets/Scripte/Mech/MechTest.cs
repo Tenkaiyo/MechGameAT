@@ -127,6 +127,12 @@ public class MechTest : MonoBehaviour
         {
             rb.AddForce(Vector3.down* 8, ForceMode.Acceleration);
         }
+        
+        if(Dead)
+        {
+            return;
+        }
+
 
         #region Hover
         //Hover

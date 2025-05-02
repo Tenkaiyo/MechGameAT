@@ -28,7 +28,7 @@ public class ShootScript : MonoBehaviour
     private GameObject ImpactParticle;
     private GameObject BloodImpactParticle;
     private LineRenderer LaserLineRender;
-    private Vector3 CurrTargetPos;
+    private Vector3 CurrTargetRot, OldTargetRot;
     private GameObject TargetObj;
     private HealthScript TargetHealth;
 
@@ -40,6 +40,7 @@ public class ShootScript : MonoBehaviour
             SupplyAmmo();
             Crosshair.sizeDelta = new Vector2(EquipedGun.FireSpread*20,EquipedGun.FireSpread*20);
         }
+        OldTargetRot = RayTrans.forward;
     }
 
     public void Shoot()
@@ -106,7 +107,8 @@ public class ShootScript : MonoBehaviour
         {  
             if (Time.time < nextTimeToFire)
             {
-                CurrTargetPos = Vector3.MoveTowards(CurrTargetPos,Target,Time.deltaTime * EquipedGun.BulletSpeed);
+                //CurrTargetPos = Vector3.MoveTowards(CurrTargetPos,Target,Time.deltaTime * EquipedGun.BulletSpeed);
+                CurrTargetRot = (Target+ new Vector3(0,1f,0)) - RayTrans.position;
                 return;
             }
             nextTimeToFire = Time.time + EquipedGun.fireRate;
@@ -126,10 +128,14 @@ public class ShootScript : MonoBehaviour
 
     public IEnumerator LaserEnemyDelay()
     {
+
         Debug.Log("LaserStart");
         while(Time.time < nextTimeToFire){
-            Vector3 shootDirection = (CurrTargetPos + new Vector3(0,1f,0)) - RayTrans.position;
-            RaycastCalc(shootDirection);
+            //Vector3 shootDirection = (CurrTargetPos + new Vector3(0,1f,0)) - RayTrans.position;
+
+            OldTargetRot = Vector3.MoveTowards(OldTargetRot, CurrTargetRot, Time.deltaTime * EquipedGun.BulletSpeed);
+            //Quaternion.RotateTowards(OldTargetRot, CurrTargetRot, Time.deltaTime * 5f);
+            RaycastCalc(OldTargetRot);
             yield return null;
         }
         StopShooting();
