@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405766149684307791, guid: 6bcca1c4284bad349b1df83ebc886a87, type: 3}
       propertyPath: stopAction
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4405766149684307791, guid: 6bcca1c4284bad349b1df83ebc886a87, type: 3}
       propertyPath: lengthInSec

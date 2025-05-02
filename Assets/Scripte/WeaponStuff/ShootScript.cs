@@ -28,7 +28,9 @@ public class ShootScript : MonoBehaviour
     private GameObject ImpactParticle;
     private GameObject BloodImpactParticle;
     private LineRenderer LaserLineRender;
-
+    private Vector3 CurrTargetPos;
+    private GameObject TargetObj;
+    private HealthScript TargetHealth;
 
 
     void Start()
@@ -68,16 +70,49 @@ public class ShootScript : MonoBehaviour
         RaycastCalc(shootDirection);
     }
 
+    public void StopShooting()
+    {
+        if(ImpactParticle != null)
+        {
+            ((ParticleSystem)ImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+            ImpactParticle = null;
+        }
+            
+        if(BloodImpactParticle != null)
+        {
+            ((ParticleSystem)BloodImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+            BloodImpactParticle = null;
+        }
+
+        if(LaserLineRender != null)
+        {
+            Destroy(LaserLineRender.gameObject);
+        }
+    }
 
     public void ShootEnemy(Vector3 Target)
     {
-        if (Time.time < nextTimeToFire)
+        if(EquipedGun.GunType != GunAttributes.GunTypes.Laser)
         {
-            return;
+            if (Time.time < nextTimeToFire)
+            {
+                return;
+            }
+            nextTimeToFire = Time.time + EquipedGun.fireRate;
+            StartCoroutine(ShootEnemyDelay(Target));
         }
-        nextTimeToFire = Time.time + EquipedGun.fireRate;
 
-        StartCoroutine(ShootEnemyDelay(Target));
+        if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
+        {  
+            if (Time.time < nextTimeToFire)
+            {
+                CurrTargetPos = Vector3.MoveTowards(CurrTargetPos,Target,Time.deltaTime * EquipedGun.BulletSpeed);
+                return;
+            }
+            nextTimeToFire = Time.time + EquipedGun.fireRate;
+            StartCoroutine(LaserEnemyDelay());
+
+        }
     }
     public IEnumerator ShootEnemyDelay(Vector3 Target)
     {
@@ -89,6 +124,16 @@ public class ShootScript : MonoBehaviour
 
     }
 
+    public IEnumerator LaserEnemyDelay()
+    {
+        Debug.Log("LaserStart");
+        while(Time.time < nextTimeToFire){
+            Vector3 shootDirection = (CurrTargetPos + new Vector3(0,1f,0)) - RayTrans.position;
+            RaycastCalc(shootDirection);
+            yield return null;
+        }
+        StopShooting();
+    }
 
     void RaycastCalc(Vector3 ShootDirection)
     {
@@ -195,6 +240,11 @@ public class ShootScript : MonoBehaviour
 
         if(Hitbox != null && Hitbox.tag == "Hitbox")
         {   
+            if(ImpactParticle != null)
+            {
+                ((ParticleSystem)ImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+                ImpactParticle = null;
+            }
             if(BloodImpactParticle == null)
             {
                 BloodImpactParticle = Instantiate(EquipedGun.BloodParticle);
@@ -205,17 +255,40 @@ public class ShootScript : MonoBehaviour
             float damage = CalcDamage(distance);
             damage = damage * Time.deltaTime;
 
-            ((HealthScript)Entity.GetComponent(typeof(HealthScript))).Damage(damage);
+            if(TargetObj != Entity)
+            {
+                TargetHealth = (HealthScript)Entity.GetComponent(typeof(HealthScript));
+            }
+            TargetHealth.Damage(damage);
             //Instantiate(EquipedGun.BloodParticle, Pos, Quaternion.LookRotation(Rot));
         }
         else if(Hitbox != null)
         {
+            if(BloodImpactParticle != null)
+            {
+                ((ParticleSystem)BloodImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+                BloodImpactParticle = null;
+            }
             if(ImpactParticle == null)
             {
                 ImpactParticle = Instantiate(EquipedGun.ImpactParticle);
             }
             ImpactParticle.transform.position = Pos;
             ImpactParticle.transform.rotation = Quaternion.LookRotation(Rot);
+        }
+        else
+        {
+            if(ImpactParticle != null)
+            {
+                ((ParticleSystem)ImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+                ImpactParticle = null;
+            }
+            
+            if(BloodImpactParticle != null)
+            {
+                ((ParticleSystem)BloodImpactParticle.GetComponent(typeof(ParticleSystem))).Stop();
+                BloodImpactParticle = null;
+            }
         }
     }
 

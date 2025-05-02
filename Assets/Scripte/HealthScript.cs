@@ -7,7 +7,12 @@ public class HealthScript : MonoBehaviour
 
     public float MaxHealth, CurrHealth;
     public Slider HealthSlider;
+    public Image HurtUI;
     public MonoBehaviour EnemyScript;
+
+    float HurtTimer;
+    bool Dead = false;
+    private int interval = 30;
 
     void Start()
     {
@@ -20,6 +25,19 @@ public class HealthScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Time.frameCount % interval == 0)
+        { 
+            if(HurtTimer > 0)
+            {
+                HurtTimer = Mathf.Clamp(HurtTimer, 0.0f, 1.0f);
+                HurtTimer -= Time.deltaTime / 2 * interval;
+                HurtUI.color = new Color(1f,1f,1f,HurtTimer);
+            }
+        }
+    }
+
     public void Damage(float damage)
     {
         if(CurrHealth == MaxHealth && EnemyScript != null)
@@ -28,15 +46,23 @@ public class HealthScript : MonoBehaviour
         }
 
         CurrHealth -= damage;
+        Hurt(damage);
         UpdateHealthUI();
 
-        if(CurrHealth <= 0){
+        if(CurrHealth <= 0 && !Dead){
+            Dead = true;
             CurrHealth = 0;
-            if(gameObject.tag != "Player")
+            if(EnemyScript != null)
+            {
+                EnemyScript.SendMessage("Die");
+            }
+            else if(gameObject.tag != "Player")
             {
                 gameObject.SetActive(false);
-                //Destroy(gameObject);
-                return;
+            }
+            if(gameObject.tag == "Player")
+            {
+                SendMessage("Die");
             }
 
             Debug.Log("You died");
@@ -56,4 +82,13 @@ public class HealthScript : MonoBehaviour
             HealthSlider.value = CurrHealth;
         }
     }
+
+    void Hurt(float damage)
+    {
+        if(HurtUI != null)
+        {
+            HurtTimer += damage / 100f;
+        }
+    }
+
 }

@@ -49,7 +49,10 @@ public class MechTest : MonoBehaviour
     private float resetfueltimer, fueldelay = 0.6f, fueldelayMax = 1f;
     #endregion
 
-
+    [Header("Other")]
+    #region 
+    public GameObject DeathUI;
+    private bool Dead = false;
     public GameObject MechModel;
     public GameObject Cam;
     public MechCam mechCam;
@@ -58,7 +61,7 @@ public class MechTest : MonoBehaviour
     Vector2 Axis;
     public ShootScript Shootscr;
     public Animator Anim;
-
+    #endregion
 
     [Header("Player Actions")]
     #region
@@ -66,6 +69,7 @@ public class MechTest : MonoBehaviour
     public InputAction DashButton;
     public InputAction DodgeButton;
     public InputAction ShootButton;
+    private bool shooting;
     public InputAction AimButton;
     #endregion
 
@@ -95,6 +99,10 @@ public class MechTest : MonoBehaviour
 
     void Update()
     {
+        if(Dead)
+        {
+            return;
+        }
         Movement();
         FuelRefill();
         Shooting();
@@ -234,7 +242,13 @@ public class MechTest : MonoBehaviour
     void Shooting()
     {
         if(ShootButton.ReadValue<float>() == 1f){
+            shooting = true;
             Shootscr.Shoot();
+        }
+        if(ShootButton.ReadValue<float>() == 0f && shooting)
+        {
+            shooting = false;
+            Shootscr.StopShooting();
         }
     }
 
@@ -271,6 +285,13 @@ public class MechTest : MonoBehaviour
         yield return new WaitForSeconds(DodgeCooldown);
 
         candodge = true;
+    }
+
+    public void Die()
+    {
+        if(DeathUI != null)
+            Dead = true;
+            DeathUI.SetActive(true);
     }
 
     void FuelRefill()

@@ -95,7 +95,7 @@ public class EnemyTest : MonoBehaviour
             ShootScr.ShootEnemy(player.position);
         }
     }
-
+    
 
     void PointDistanceCheck()
     {
@@ -121,6 +121,15 @@ public class EnemyTest : MonoBehaviour
         NavAgent.SetDestination(player.position);
     }
 
+    public void Die()
+    {
+        if(ShootScr != null)
+        {
+            ShootScr.StopShooting();
+            ShootScr.StopAllCoroutines();
+        }
+        gameObject.SetActive(false);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;

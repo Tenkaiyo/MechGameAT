@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunType: 3
   MinDamage: 10
-  MaxDamage: 80
+  MaxDamage: 50
   nearDistance: 20
   farDistance: 40
   range: 100
   ReflectionCount: 0
   ReflectRange: 10
-  fireRate: 5
-  BulletSpeed: 150
-  FireSpread: 1
+  fireRate: 1
+  BulletSpeed: 20
+  FireSpread: 0
   BulletsPerFire: 1
   MaxAmmo: 30
   InfiniteAmmo: 1
   ImpactParticle: {fileID: 691528096246745178, guid: 1fb73360f17b22c438c25685b742cb6c, type: 3}
-  BloodParticle: {fileID: 0}
+  BloodParticle: {fileID: 5255749276354896226, guid: 41818c4aaf646084aaa1669e0defc1d8, type: 3}
   BulletTrail: {fileID: 0}
   BulletLine: {fileID: 4107774278668115341, guid: 04ae65f899c38a24bb71914af40dfe1f, type: 3}
