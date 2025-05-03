@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Wei\xDF"
-  m_Shader: {fileID: -6465566751694194690, guid: e5fe744a5cff99b42ad8b86c2aa0ae7c, type: 3}
+  m_Name: "Wei\xDFs"
+  m_Shader: {fileID: -6465566751694194690, guid: 3485f554e0bd5304e8ddf73e14ae9b73, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -110,7 +110,7 @@ Material:
     - _Float: 0
     - _Float_1: 0
     - _Float_2: 0
-    - _FresnelSize: 3
+    - _FresnelSize: 2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
