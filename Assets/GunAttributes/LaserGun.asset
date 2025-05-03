@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   GunType: 3
-  MinDamage: 10
-  MaxDamage: 16
+  MinDamage: 30
+  MaxDamage: 30
   nearDistance: 20
   farDistance: 40
   range: 100
   ReflectionCount: 0
   ReflectRange: 10
-  fireRate: 20
-  BulletSpeed: 3
+  fireRate: 5
+  BulletSpeed: 0.3
   FireSpread: 0
   BulletsPerFire: 1
   MaxAmmo: 30

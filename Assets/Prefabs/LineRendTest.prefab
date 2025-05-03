@@ -82,7 +82,7 @@ LineRenderer:
   - {x: -3.56, y: 0.98, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.06
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -97,7 +97,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.3
+        value: 0.09020981
         inSlope: 0
         outSlope: 0
         tangentMode: 0
