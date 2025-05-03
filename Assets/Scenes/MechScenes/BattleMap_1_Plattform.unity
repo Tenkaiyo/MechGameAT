@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0.24109435, b: 0.8490566, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1132817203}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38429,7 +38429,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 664e3adfb5bb3e34185c8cc39f21bc36, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b6b3395aa438777469b24f47f1ecff64, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1835724651
 Transform:
@@ -42459,6 +42459,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.57215214
+      objectReference: {fileID: 0}
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: AmmoText
       value: 
