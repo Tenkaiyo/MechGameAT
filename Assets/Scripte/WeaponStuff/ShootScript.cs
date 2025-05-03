@@ -130,11 +130,9 @@ public class ShootScript : MonoBehaviour
     {
 
         Debug.Log("LaserStart");
+        Debug.Log(OldTargetRot);
         while(Time.time < nextTimeToFire){
-            //Vector3 shootDirection = (CurrTargetPos + new Vector3(0,1f,0)) - RayTrans.position;
-
-            OldTargetRot = Vector3.MoveTowards(OldTargetRot, CurrTargetRot, Time.deltaTime * EquipedGun.BulletSpeed);
-            //Quaternion.RotateTowards(OldTargetRot, CurrTargetRot, Time.deltaTime * 5f);
+            OldTargetRot = Vector3.MoveTowards(OldTargetRot.normalized, CurrTargetRot.normalized, Time.deltaTime * EquipedGun.BulletSpeed);
             RaycastCalc(OldTargetRot);
             yield return null;
         }
