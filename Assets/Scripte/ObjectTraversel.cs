@@ -5,10 +5,13 @@ public class ObjectTraversel : MonoBehaviour
 
     public PatrolArt patrolart;
     public Transform[] Travelpoints;
+    public Transform[] Waitingpoints;
     private int curPoint = 0;
     private bool backwards = false;
     public float TravSpeed = 3f;
+    public float WaitTime = 0f;
 
+    private float timer;
     private int interval = 10;
 
     public enum PatrolArt{
@@ -31,6 +34,7 @@ public class ObjectTraversel : MonoBehaviour
             {
                 transform.rotation = Travelpoints[(backwards? Mathf.Clamp(curPoint -1, 0, Travelpoints.Length): curPoint)].rotation;
                 curPoint = curPoint + (backwards? -1: 1);
+                
 
                 if(patrolart == PatrolArt.PingPong)
                 {
@@ -62,7 +66,29 @@ public class ObjectTraversel : MonoBehaviour
                         curPoint = 1;
                     }
                 }
+                
+                if(Waitingpoints.Length != 0)
+                {
+                    for(int i=0; i< Waitingpoints.Length; i++)
+                    {
+                        if(Waitingpoints[i] == Travelpoints[curPoint])
+                        {
+                            timer = WaitTime;
+                        }
+                    }
+                }
+
             }
+        }
+
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                timer = 0;
+            }
+            return;
         }
 
         transform.position = Vector3.MoveTowards(transform.position, Travelpoints[curPoint].position, TravSpeed * Time.deltaTime);
