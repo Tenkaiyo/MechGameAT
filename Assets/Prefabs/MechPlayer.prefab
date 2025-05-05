@@ -149,8 +149,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -555,6 +555,7 @@ MonoBehaviour:
   FuelSlider: {fileID: 0}
   MaxFuel: 8
   fuelresetSpeed: 2
+  DeathUI: {fileID: 0}
   MechModel: {fileID: 5919877774876774645}
   Cam: {fileID: 1102863638873432570}
   mechCam: {fileID: 2018839805012873881}
@@ -714,6 +715,7 @@ MonoBehaviour:
   MaxHealth: 200
   CurrHealth: 0
   HealthSlider: {fileID: 0}
+  HurtUI: {fileID: 0}
   EnemyScript: {fileID: 0}
 --- !u!1 &8616619751665507842
 GameObject:
