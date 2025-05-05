@@ -74450,6 +74450,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1962959404548571817, guid: caa4df8aa3f30b844acb7fb8b2de8f40, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962959404548571817, guid: caa4df8aa3f30b844acb7fb8b2de8f40, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8492550057142765826, guid: caa4df8aa3f30b844acb7fb8b2de8f40, type: 3}
       propertyPath: Types
       value: 0

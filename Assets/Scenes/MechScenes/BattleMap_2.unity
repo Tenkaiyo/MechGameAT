@@ -132540,6 +132540,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MechPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8872842972984631656, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872842972984631656, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
