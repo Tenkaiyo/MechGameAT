@@ -16808,7 +16808,7 @@ MonoBehaviour:
   - {fileID: 196188799}
   - {fileID: 2132729452}
   Waitingpoints: []
-  TravSpeed: 10
+  TravSpeed: 5
   WaitTime: 0
 --- !u!1 &946205377
 GameObject:
@@ -25410,8 +25410,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -25425,7 +25425,7 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
+    m_Quality: 4
     m_FrameInfluence: 0.1
     m_JitterScale: 1
     m_MipBias: 0
