@@ -21,7 +21,7 @@ MonoBehaviour:
   ReflectionCount: 0
   ReflectRange: 10
   fireRate: 5
-  BulletSpeed: 0.3
+  BulletSpeed: 0.25
   FireSpread: 0
   BulletsPerFire: 1
   MaxAmmo: 30

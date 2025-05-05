@@ -28,8 +28,10 @@ public class DebugMenu : MonoBehaviour
 
     void Start()
     {
+        if(playercam != null){
         playercam.SendMessage("SetMouseSens", PlayerPrefs.GetFloat("CamSens", 0.3f));
         Camslider.value = PlayerPrefs.GetFloat("CamSens", 0.3f);
+        }
     }
 
     void Update()

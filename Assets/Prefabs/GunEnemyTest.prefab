@@ -593,6 +593,7 @@ MonoBehaviour:
   MaxHealth: 180
   CurrHealth: 0
   HealthSlider: {fileID: 0}
+  HurtUI: {fileID: 0}
   EnemyScript: {fileID: 1687809904699410925}
 --- !u!114 &1687809904699410925
 MonoBehaviour:
@@ -607,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavAgent: {fileID: 0}
-  radius: 25
+  radius: 20
   angle: 120
   distance: 12
   rotationSpeed: 12

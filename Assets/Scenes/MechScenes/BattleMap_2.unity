@@ -2423,7 +2423,9 @@ MonoBehaviour:
   Travelpoints:
   - {fileID: 571618415}
   - {fileID: 1739461496}
+  Waitingpoints: []
   TravSpeed: 20
+  WaitTime: 0
 --- !u!65 &39560369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16074,7 +16076,9 @@ MonoBehaviour:
   Travelpoints:
   - {fileID: 571618415}
   - {fileID: 1739461496}
+  Waitingpoints: []
   TravSpeed: 20
+  WaitTime: 0
 --- !u!65 &270038409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49372,26 +49376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2637870565463726311, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3486576076831261828, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
       propertyPath: playercam
       value: 
       objectReference: {fileID: 2133464576}
-    - target: {fileID: 6708808331280114316, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7715491741790958113, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Town_Human_BlockoutV1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033569321102912992, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8710317446605454077, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -62311,7 +62299,9 @@ MonoBehaviour:
   Travelpoints:
   - {fileID: 1017882716}
   - {fileID: 1017601895}
+  Waitingpoints: []
   TravSpeed: 20
+  WaitTime: 0
 --- !u!1 &986322134
 GameObject:
   m_ObjectHideFlags: 0
@@ -80712,7 +80702,9 @@ MonoBehaviour:
   Travelpoints:
   - {fileID: 1017882716}
   - {fileID: 1017601895}
+  Waitingpoints: []
   TravSpeed: 20
+  WaitTime: 0
 --- !u!65 &1278354582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -128785,7 +128777,9 @@ MonoBehaviour:
   Travelpoints:
   - {fileID: 571618415}
   - {fileID: 1739461496}
+  Waitingpoints: []
   TravSpeed: 20
+  WaitTime: 0
 --- !u!65 &1970212067
 BoxCollider:
   m_ObjectHideFlags: 0

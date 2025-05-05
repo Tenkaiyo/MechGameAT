@@ -25454,7 +25454,7 @@ PrefabInstance:
     - target: {fileID: 3486576076831261828, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
       propertyPath: playercam
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1748353794}
     - target: {fileID: 8710317446605454077, guid: 677f6d28655f1ab4e8db3ae10611d430, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -86366,6 +86366,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa4df8aa3f30b844acb7fb8b2de8f40, type: 3}
+--- !u!1 &1748353794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4190798855842365890, guid: caa4df8aa3f30b844acb7fb8b2de8f40, type: 3}
+  m_PrefabInstance: {fileID: 1748353793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1748497484
 GameObject:
   m_ObjectHideFlags: 0
@@ -105850,6 +105855,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1748353793}
+  - {fileID: 542635544}
   - {fileID: 705507995}
   - {fileID: 966774820}
   - {fileID: 951782991}
@@ -105865,7 +105872,6 @@ SceneRoots:
   - {fileID: 448643442}
   - {fileID: 1486301397}
   - {fileID: 53401729}
-  - {fileID: 542635544}
   - {fileID: 1564436682}
   - {fileID: 302102925}
   - {fileID: 1475953486}
@@ -106771,4 +106777,3 @@ SceneRoots:
   - {fileID: 94397139}
   - {fileID: 1694270831}
   - {fileID: 608990149}
-  - {fileID: 1748353793}
