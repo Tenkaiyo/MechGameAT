@@ -36,7 +36,7 @@ public class MechTest : MonoBehaviour
     public float DodgeTime = .2f;
     public float DodgeCooldown = 1f;
     public float DodgeCost = 0.8f;
-    bool candodge = true;
+    bool candodge = true , dodging = false;
     #endregion
 
 
@@ -127,7 +127,7 @@ public class MechTest : MonoBehaviour
         {
             rb.AddForce(Vector3.down* 8, ForceMode.Acceleration);
         }
-        
+
         if(Dead)
         {
             return;
@@ -232,7 +232,7 @@ public class MechTest : MonoBehaviour
         {
             MechModel.transform.rotation = Quaternion.Slerp(MechModel.transform.rotation, Quaternion.LookRotation(new Vector3(movement.x, 0f, movement.z)), 5f * Time.deltaTime);
         }
-        if(AimButton.ReadValue<float>() == 1f || ShootButton.ReadValue<float>() == 1f)
+        if(AimButton.ReadValue<float>() == 1f || ShootButton.ReadValue<float>() == 1f || dodging)
         {
             //*if(MechModel.transform.rotation != CameraplanarRot)
             {
@@ -247,7 +247,7 @@ public class MechTest : MonoBehaviour
 
     void Shooting()
     {
-        if(ShootButton.ReadValue<float>() == 1f){
+        if(ShootButton.ReadValue<float>() == 1f && !dodging){
             shooting = true;
             Shootscr.Shoot();
         }
@@ -261,6 +261,7 @@ public class MechTest : MonoBehaviour
     public IEnumerator Dodge()
     {
         candodge = false;
+        dodging = true;
         mechCam.CamDelay();
         Currfuel -= DodgeCost;
         resetfueltimer = fueldelay;
@@ -287,6 +288,7 @@ public class MechTest : MonoBehaviour
         Anim.SetFloat("DodgeH", 0f);
         Anim.SetFloat("DodgeV", 0f);
         rb.linearDamping = damping;
+        dodging = false;
 
         yield return new WaitForSeconds(DodgeCooldown);
 
