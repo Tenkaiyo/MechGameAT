@@ -29,7 +29,6 @@ public class ShootScript : MonoBehaviour
 
     #region ReloadingStuff
     private bool isReloading = false;
-    private bool wantingtoReload = false;
     private Coroutine reloadCoroutine = null;
     #endregion
 
@@ -475,7 +474,6 @@ public class ShootScript : MonoBehaviour
 
 
         isReloading = false;
-        wantingtoReload = false;
 
     }
 

@@ -69,7 +69,7 @@ public class MechTest : MonoBehaviour
     public InputAction DashButton;
     public InputAction DodgeButton;
     public InputAction ShootButton;
-    private bool shooting;
+    public bool shooting;
     public InputAction AimButton;
     public InputAction ReloadButton;
     #endregion
