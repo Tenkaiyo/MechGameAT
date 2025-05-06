@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!65 &66720998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2591,7 +2592,9 @@ MonoBehaviour:
   - {fileID: 1681589381}
   - {fileID: 1310255282}
   - {fileID: 622179465}
+  Waitingpoints: []
   TravSpeed: 5
+  WaitTime: 0
 --- !u!65 &421549818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2900,6 +2903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!65 &455852676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3219,7 +3223,7 @@ GameObject:
   - component: {fileID: 522630841}
   - component: {fileID: 522630845}
   m_Layer: 6
-  m_Name: HealthRecharge/BatteryRecharge
+  m_Name: HealthAmmoRecharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3326,6 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!1 &527223579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!65 &530568297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4858,7 +4864,7 @@ PrefabInstance:
     - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: EquipedGun
       value: 
-      objectReference: {fileID: 11400000, guid: 2dbce4472f8dc674eaa87b42d9e55bd1, type: 2}
+      objectReference: {fileID: 11400000, guid: d406fa825bf74c74bb9368b4ad71dd35, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.257043
@@ -6039,7 +6045,9 @@ MonoBehaviour:
   - {fileID: 1681589381}
   - {fileID: 1310255282}
   - {fileID: 622179465}
+  Waitingpoints: []
   TravSpeed: 5
+  WaitTime: 0
 --- !u!65 &903685203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6955,6 +6963,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 928727794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1103382182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 373169644683637193, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
+  m_PrefabInstance: {fileID: 5599355616048011532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1132817202
 GameObject:
   m_ObjectHideFlags: 0
@@ -12522,6 +12535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 373169644683637193, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2730905055043031716, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12643,6 +12660,14 @@ PrefabInstance:
       propertyPath: Crosshair
       value: 
       objectReference: {fileID: 2102758595}
+    - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: d406fa825bf74c74bb9368b4ad71dd35, type: 2}
+    - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 1103382182}
     - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: FuelSlider
       value: 

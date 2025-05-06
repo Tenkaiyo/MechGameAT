@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de706e22d002f99478fa701c9238834b, type: 3}
-  m_Name: LaserGun
+  m_Name: Sniper
   m_EditorClassIdentifier: 
-  GunType: 3
-  MinDamage: 30
-  MaxDamage: 30
-  nearDistance: 20
-  farDistance: 40
+  GunType: 0
+  MinDamage: 10
+  MaxDamage: 50
+  nearDistance: 40
+  farDistance: 60
   range: 100
   ReflectionCount: 0
   ReflectRange: 10
-  fireRate: 5
-  BulletSpeed: 0.25
+  fireRate: 0.8
+  BulletSpeed: 3
   FireSpread: 0
   BulletsPerFire: 1
-  MaxAmmo: 30
-  InfiniteAmmo: 1
-  ImpactParticle: {fileID: 691528096246745178, guid: 1fb73360f17b22c438c25685b742cb6c, type: 3}
-  BloodParticle: {fileID: 5255749276354896226, guid: 41818c4aaf646084aaa1669e0defc1d8, type: 3}
+  MaxAmmo: 15
+  InfiniteAmmo: 0
+  ImpactParticle: {fileID: 691528096246745178, guid: 2391a0840543d4a4fa8987d7c49106dd, type: 3}
+  BloodParticle: {fileID: 5255749276354896226, guid: 6bcca1c4284bad349b1df83ebc886a87, type: 3}
   BulletTrail: {fileID: 0}
   BulletLine: {fileID: 4901038160364421765, guid: 04ae65f899c38a24bb71914af40dfe1f, type: 3}

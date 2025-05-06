@@ -36,7 +36,7 @@ public class GunAttributes : ScriptableObject
     public GameObject ImpactParticle;
     public GameObject BloodParticle;
     public TrailRenderer BulletTrail;
-    public GameObject BulletLine;
+    public LineRenderer BulletLine;
     //public GameObject MuzzleFlash;
 
 }
