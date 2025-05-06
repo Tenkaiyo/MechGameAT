@@ -33877,30 +33877,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 295290468842227600, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 295290468842227600, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.9433962
-      objectReference: {fileID: 0}
-    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.85541457
-      objectReference: {fileID: 0}
-    - target: {fileID: 770824449004016989, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.51174796
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018839805012873881, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: CamDistance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: AmmoText
       value: 
@@ -33910,17 +33886,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 58380964}
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: EquipedGun
-      value: 
-      objectReference: {fileID: 11400000, guid: d406fa825bf74c74bb9368b4ad71dd35, type: 2}
-    - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: ClipAmmoText
       value: 
       objectReference: {fileID: 1215949055}
-    - target: {fileID: 3045473269009856978, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: DeathUI
       value: 
