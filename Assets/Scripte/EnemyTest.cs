@@ -1,5 +1,3 @@
-using System.Linq;
-using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,6 +13,9 @@ public class EnemyTest : MonoBehaviour
     public Transform RaycastTrans;
     private Transform player;
     public ShootScript ShootScr;
+    public bool defensive = false;
+    private Vector3 AwayFromPlayer;
+    private Vector3 directionToTarget;
     private int interval = 10;
 
 
@@ -45,9 +46,10 @@ public class EnemyTest : MonoBehaviour
         if(rangeCheck.Length != 0)
         {
             player = rangeCheck[0].transform;
-            Vector3 directionToTarget = ((player.position + new Vector3(0,1f,0)) - RaycastTrans.position).normalized;
+            directionToTarget = ((player.position + new Vector3(0,1f,0)) - RaycastTrans.position).normalized;
             float distanceToTarget = Vector3.Distance(RaycastTrans.position, player.position + new Vector3(0,1f,0));
-
+            if(!defensive)
+            {
                 if(!Physics.Raycast(RaycastTrans.position, directionToTarget, distanceToTarget, ObstructionMask))
                 {
                     if(Vector3.Angle(RaycastTrans.forward, directionToTarget) < angle /2)
@@ -68,15 +70,23 @@ public class EnemyTest : MonoBehaviour
                     return;
                 } 
 
-            if(distanceToTarget > distance)
+                if(distanceToTarget > distance)
+                {
+                    NavAgent.isStopped = false;
+                    NavAgent.SetDestination(player.position);
+                    return;
+                }
+                else
+                {
+                    NavAgent.isStopped = true;
+                    return;
+                }
+            }
+
+            if(defensive)
             {
                 NavAgent.isStopped = false;
-                NavAgent.SetDestination(player.position);
-                return;
-            }
-            else
-            {
-                NavAgent.isStopped = true;
+                NavAgent.SetDestination(AwayFromPlayer);
                 return;
             }
         }
@@ -121,6 +131,16 @@ public class EnemyTest : MonoBehaviour
         NavAgent.SetDestination(player.position);
     }
 
+    public void Defending(bool isdefense)
+    {
+        defensive = isdefense;
+
+        if(isdefense)
+        {
+            bool WhatDir = Random.value < 0.5f;
+            AwayFromPlayer = transform.position + directionToTarget * -3f + new Vector3(directionToTarget.z, 0, -directionToTarget.x) * 9f * (WhatDir?-1f:1f);
+        }
+    }
     public void Die()
     {
         if(ShootScr != null)

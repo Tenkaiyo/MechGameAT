@@ -16,10 +16,10 @@ public class ShootScript : MonoBehaviour
     public Transform BulletSpawnPoint;
 
 
-
     [Header("Raycast")]
     public LayerMask RayLayer;
     public Transform RayTrans;
+
 
     [Header("UI")]
     public Text AmmoText;
@@ -27,18 +27,21 @@ public class ShootScript : MonoBehaviour
     public RectTransform Crosshair;
 
 
+    #region ReloadingStuff
     private bool isReloading = false;
     private bool wantingtoReload = false;
     private Coroutine reloadCoroutine = null;
+    #endregion
 
 
-    //LaserStuff
+    #region LaserStuff
     private GameObject ImpactParticle;
     private GameObject BloodImpactParticle;
     private LineRenderer LaserLineRender;
     private Vector3 CurrTargetRot, OldTargetRot;
     private GameObject TargetObj;
     private HealthScript TargetHealth;
+    #endregion
 
 
     void Start()
@@ -441,6 +444,10 @@ public class ShootScript : MonoBehaviour
     {
         isReloading = true;
         Debug.Log(" Reloading...");
+        if(!IsPlayer)
+        {
+            SendMessage("Defending", true);
+        }
 
         yield return new WaitForSeconds(EquipedGun.ReloadTime);
 
@@ -463,6 +470,7 @@ public class ShootScript : MonoBehaviour
         else
         {
             currentClipAmmo = EquipedGun.ClipAmmo;
+            SendMessage("Defending", false);
         }
 
 
