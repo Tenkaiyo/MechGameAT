@@ -678,6 +678,23 @@ MonoBehaviour:
       m_Action: Aim Button
       m_Flags: 0
     m_Flags: 0
+  ReloadButton:
+    m_Name: Reload Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b66a4600-2cf1-4caf-94ce-06b4dd9edfbe
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: db1e363c-923b-4403-bd52-e756a455481e
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Reload Button
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &2209201617314789025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e2a24720f7b44493b3ce683fae8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquipedGun: {fileID: 11400000, guid: 2dbce4472f8dc674eaa87b42d9e55bd1, type: 2}
+  EquipedGun: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
   IsPlayer: 1
   MuzzleFlash: {fileID: 4535808034879776690}
   BulletSpawnPoint: {fileID: 7289218756653267121}
@@ -699,6 +716,7 @@ MonoBehaviour:
     m_Bits: 179
   RayTrans: {fileID: 3045473269009856978}
   AmmoText: {fileID: 0}
+  ClipAmmoText: {fileID: 0}
   Crosshair: {fileID: 0}
 --- !u!114 &4182783044986932699
 MonoBehaviour:

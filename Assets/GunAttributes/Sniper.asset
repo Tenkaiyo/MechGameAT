@@ -21,10 +21,12 @@ MonoBehaviour:
   ReflectionCount: 0
   ReflectRange: 10
   fireRate: 0.8
+  ReloadTime: 0.5
   BulletSpeed: 3
   FireSpread: 0
   BulletsPerFire: 1
   MaxAmmo: 15
+  ClipAmmo: 15
   InfiniteAmmo: 0
   ImpactParticle: {fileID: 691528096246745178, guid: 2391a0840543d4a4fa8987d7c49106dd, type: 3}
   BloodParticle: {fileID: 5255749276354896226, guid: 6bcca1c4284bad349b1df83ebc886a87, type: 3}

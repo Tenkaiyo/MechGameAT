@@ -48,39 +48,53 @@ public class ShootScript : MonoBehaviour
             SupplyAmmo();
             Crosshair.sizeDelta = new Vector2(EquipedGun.FireSpread*20,EquipedGun.FireSpread*20);
         }
-        OldTargetRot = RayTrans.forward;
+        else
+        {
+            currentClipAmmo = EquipedGun.ClipAmmo;
+        }
+
     }
 
     public void Shoot()
     {
+        if(isReloading)
+        {
+            return;
+        }
+        if(currentClipAmmo <= 0 && currentAmmo > 0)
+        {
+            reloadCoroutine = StartCoroutine(Reload());
+            return;
+        }
+
         if(EquipedGun.GunType != GunAttributes.GunTypes.Laser)
         {
-            if(isReloading)
-            {
-                return;
-            }
-            if(currentClipAmmo <= 0)
-            {
-                
-            }
             if (Time.time < nextTimeToFire || currentClipAmmo <= 0 && !EquipedGun.InfiniteAmmo)
             {
                 return;
             }
-            currentClipAmmo -= 1;
-            UpdateAmmoUI();
+
+            if(!EquipedGun.InfiniteAmmo)
+            {
+                currentClipAmmo -= 1;
+                UpdateAmmoUI();
+            }
+
             nextTimeToFire = Time.time + EquipedGun.fireRate;
             MuzzleFlash.Play();
         }
-
         if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
         {
             if(currentAmmo <= 0 && !EquipedGun.InfiniteAmmo)
             {
                 return;
             }
-            currentAmmo -= Time.deltaTime * EquipedGun.fireRate;
-            UpdateAmmoUI();
+
+            if(!EquipedGun.InfiniteAmmo)
+            {
+                currentAmmo -= Time.deltaTime * EquipedGun.fireRate;
+                UpdateAmmoUI();
+            }
         }
 
         Vector3 shootDirection = RayTrans.transform.forward;
@@ -109,16 +123,29 @@ public class ShootScript : MonoBehaviour
 
     public void ShootEnemy(Vector3 Target)
     {
+        if(isReloading)
+        {
+            return;
+        }
+        if(currentClipAmmo <= 0)
+        {
+            reloadCoroutine = StartCoroutine(Reload());
+            return;
+        }
+
         if(EquipedGun.GunType != GunAttributes.GunTypes.Laser)
         {
             if (Time.time < nextTimeToFire)
             {
                 return;
             }
+            if(!EquipedGun.InfiniteAmmo)
+            {
+                currentClipAmmo -= 1;
+            }
             nextTimeToFire = Time.time + EquipedGun.fireRate;
             StartCoroutine(ShootEnemyDelay(Target));
         }
-
         if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
         {  
             if (Time.time < nextTimeToFire)
@@ -147,9 +174,13 @@ public class ShootScript : MonoBehaviour
 
         Debug.Log("LaserStart");
         Debug.Log(OldTargetRot);
-        while(Time.time < nextTimeToFire){
-            OldTargetRot = Vector3.MoveTowards(OldTargetRot.normalized, CurrTargetRot.normalized, Time.deltaTime * EquipedGun.BulletSpeed);
+        while(Time.time < nextTimeToFire && currentAmmo > 0){
+            OldTargetRot = Vector3.MoveTowards(OldTargetRot.normalized, CurrTargetRot.normalized, Time.deltaTime * EquipedGun.BulletSpeed);            
             RaycastCalc(OldTargetRot);
+            if(!EquipedGun.InfiniteAmmo)
+            {
+                currentAmmo -= Time.deltaTime * EquipedGun.fireRate;
+            }
             yield return null;
         }
         StopShooting();
@@ -207,6 +238,7 @@ public class ShootScript : MonoBehaviour
             }
         }
     }
+
 
 
 
@@ -377,6 +409,7 @@ public class ShootScript : MonoBehaviour
     }
 
 
+
     float CalcDamage(float distance)
     {
         float Dist = 0;
@@ -391,8 +424,61 @@ public class ShootScript : MonoBehaviour
         return BulletDamage;
     }
 
+    public void ReloadAmmo()
+    {
+        if(isReloading || EquipedGun.InfiniteAmmo)
+        {
+            return;
+        }
+        if(currentAmmo > 0 && currentClipAmmo < EquipedGun.ClipAmmo)
+        {
+            reloadCoroutine = StartCoroutine(Reload());
+            return;
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        Debug.Log(" Reloading...");
+
+        yield return new WaitForSeconds(EquipedGun.ReloadTime);
+
+        Debug.Log(" Done Reloading");
+
+        if(IsPlayer)
+        {
+            currentAmmo += currentClipAmmo - EquipedGun.ClipAmmo;
+            if(currentAmmo < 0)
+            {
+                currentClipAmmo = EquipedGun.ClipAmmo + currentAmmo;
+                currentAmmo = 0;
+            }
+            else
+            {
+                currentClipAmmo = EquipedGun.ClipAmmo;
+            }
+            UpdateAmmoUI();
+        }
+        else
+        {
+            currentClipAmmo = EquipedGun.ClipAmmo;
+        }
+
+
+        isReloading = false;
+        wantingtoReload = false;
+
+    }
+
     public void SupplyAmmo()
     {
+        if(reloadCoroutine != null)
+        {
+            StopCoroutine(reloadCoroutine);
+        }
+
+        isReloading = false;
         currentAmmo = EquipedGun.MaxAmmo - EquipedGun.ClipAmmo;
         currentClipAmmo = EquipedGun.ClipAmmo;
         UpdateAmmoUI();

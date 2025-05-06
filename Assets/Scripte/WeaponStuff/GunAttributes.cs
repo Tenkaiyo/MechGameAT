@@ -24,6 +24,7 @@ public class GunAttributes : ScriptableObject
     public float ReflectRange = 10f;
     [Space]
     public float fireRate = .1f;
+    public float ReloadTime = .5f;
     public float BulletSpeed = 150f;
     public float FireSpread = 1f;
     [Space]

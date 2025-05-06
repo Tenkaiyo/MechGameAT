@@ -71,6 +71,7 @@ public class MechTest : MonoBehaviour
     public InputAction ShootButton;
     private bool shooting;
     public InputAction AimButton;
+    public InputAction ReloadButton;
     #endregion
 
 
@@ -81,6 +82,7 @@ public class MechTest : MonoBehaviour
         DodgeButton.Enable();
         ShootButton.Enable();
         AimButton.Enable();
+        ReloadButton.Enable();
     }
 
     void OnDisable()
@@ -90,6 +92,7 @@ public class MechTest : MonoBehaviour
         DodgeButton.Disable();
         ShootButton.Disable();
         AimButton.Disable();
+        ReloadButton.Disable();
     }
 
     void Start()
@@ -255,6 +258,10 @@ public class MechTest : MonoBehaviour
         {
             shooting = false;
             Shootscr.StopShooting();
+        }
+        if(ReloadButton.ReadValue<float>() == 1f)
+        {
+            Shootscr.ReloadAmmo();
         }
     }
 
