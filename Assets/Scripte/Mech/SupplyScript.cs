@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SupplyScript : MonoBehaviour
@@ -14,6 +15,19 @@ public class SupplyScript : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player" && Timer <= 0)
+        {
+            Debug.Log("Supplied Ammo and Fuel");
+            other.SendMessage("SupplyFuel");
+            other.SendMessage("SupplyAmmo");
+            other.SendMessage("SupplyHealth");
+            Timer = CoolDownTime;
+            Meshrend.enabled = false;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player" && Timer <= 0)
         {
