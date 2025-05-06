@@ -29,6 +29,7 @@ public class GunAttributes : ScriptableObject
     [Space]
     public int BulletsPerFire = 1;
     public int MaxAmmo = 30;
+    public int ClipAmmo = 15;
     public bool InfiniteAmmo = false;
     
 

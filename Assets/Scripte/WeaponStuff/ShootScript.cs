@@ -10,6 +10,7 @@ public class ShootScript : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     private float currentAmmo;
+    private float currentClipAmmo;
 
     public ParticleSystem MuzzleFlash;
     public Transform BulletSpawnPoint;
@@ -22,7 +23,14 @@ public class ShootScript : MonoBehaviour
 
     [Header("UI")]
     public Text AmmoText;
+    public Text ClipAmmoText;
     public RectTransform Crosshair;
+
+
+    private bool isReloading = false;
+    private bool wantingtoReload = false;
+    private Coroutine reloadCoroutine = null;
+
 
     //LaserStuff
     private GameObject ImpactParticle;
@@ -47,11 +55,19 @@ public class ShootScript : MonoBehaviour
     {
         if(EquipedGun.GunType != GunAttributes.GunTypes.Laser)
         {
-            if (Time.time < nextTimeToFire || currentAmmo <= 0 && !EquipedGun.InfiniteAmmo)
+            if(isReloading)
             {
                 return;
             }
-            currentAmmo -= 1;
+            if(currentClipAmmo <= 0)
+            {
+                
+            }
+            if (Time.time < nextTimeToFire || currentClipAmmo <= 0 && !EquipedGun.InfiniteAmmo)
+            {
+                return;
+            }
+            currentClipAmmo -= 1;
             UpdateAmmoUI();
             nextTimeToFire = Time.time + EquipedGun.fireRate;
             MuzzleFlash.Play();
@@ -377,12 +393,14 @@ public class ShootScript : MonoBehaviour
 
     public void SupplyAmmo()
     {
-        currentAmmo = EquipedGun.MaxAmmo;
+        currentAmmo = EquipedGun.MaxAmmo - EquipedGun.ClipAmmo;
+        currentClipAmmo = EquipedGun.ClipAmmo;
         UpdateAmmoUI();
     }
 
     void UpdateAmmoUI()
     {
         AmmoText.text = currentAmmo.ToString("f0");
+        ClipAmmoText.text = currentClipAmmo.ToString("f0");
     }
 }
