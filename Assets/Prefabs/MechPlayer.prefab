@@ -61,11 +61,11 @@ Transform:
   m_GameObject: {fileID: 1102863638873432570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 295290468842227600}
+  m_Father: {fileID: 774566712708107551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &770824449004016989
 Camera:
@@ -100,7 +100,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 500
-  field of view: 80
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -182,9 +182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0cee7e499919745b1d46a3f4633ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamPar: {fileID: 295290468842227600}
+  CamParRot: {fileID: 295290468842227600}
+  CamParX: {fileID: 774566712708107551}
   cam: {fileID: 770824449004016989}
-  CamDistance: 0
+  CamDistance: 1.2
+  CamDistanceAim: 0.8
+  CamSideDist: 0.3
   CameraRotationSpeed: 0.5
   collisionMask:
     serializedVersion: 2
@@ -207,6 +210,55 @@ MonoBehaviour:
       m_Action: Mouse Move
       m_Flags: 0
     m_Flags: 0
+  AimButton:
+    m_Name: Aim Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 648950bf-0f8c-4ffb-8998-e9103a3d1f50
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 378028b6-8b54-4b11-91d7-e21d66c38f6a
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Button
+      m_Flags: 0
+    m_Flags: 0
+--- !u!1 &3318008265522233658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774566712708107551}
+  m_Layer: 3
+  m_Name: CameraOffsetX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774566712708107551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318008265522233658}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3045473269009856978}
+  m_Father: {fileID: 295290468842227600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3498052856324592117
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +713,7 @@ MonoBehaviour:
       m_Action: Shoot Button
       m_Flags: 0
     m_Flags: 0
+  shooting: 0
   AimButton:
     m_Name: Aim Button
     m_Type: 0
@@ -5637,7 +5690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295290468842227600}
   m_Layer: 3
-  m_Name: CameraOffset
+  m_Name: CameraOffsetRot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5652,11 +5705,11 @@ Transform:
   m_GameObject: {fileID: 8917972889170788848}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.54, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3045473269009856978}
+  - {fileID: 774566712708107551}
   m_Father: {fileID: 6705365257217949691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5184621853594961009

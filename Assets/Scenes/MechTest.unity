@@ -2356,7 +2356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &395172033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12847,10 +12847,6 @@ PrefabInstance:
       propertyPath: Crosshair
       value: 
       objectReference: {fileID: 2102758595}
-    - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
-      propertyPath: EquipedGun
-      value: 
-      objectReference: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: ClipAmmoText
       value: 

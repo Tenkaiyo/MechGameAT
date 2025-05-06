@@ -443,17 +443,16 @@ public class ShootScript : MonoBehaviour
     {
         isReloading = true;
         Debug.Log(" Reloading...");
-        if(!IsPlayer)
-        {
-            SendMessage("Defending", true);
-        }
-
-        yield return new WaitForSeconds(EquipedGun.ReloadTime);
-
-        Debug.Log(" Done Reloading");
 
         if(IsPlayer)
         {
+            Color32 textcol = AmmoText.color;
+            AmmoText.color = Color.black;
+            ClipAmmoText.color = Color.black;
+
+            yield return new WaitForSeconds(EquipedGun.ReloadTime);
+
+            Debug.Log(" Done Reloading");
             currentAmmo += currentClipAmmo - EquipedGun.ClipAmmo;
             if(currentAmmo < 0)
             {
@@ -464,10 +463,17 @@ public class ShootScript : MonoBehaviour
             {
                 currentClipAmmo = EquipedGun.ClipAmmo;
             }
+            AmmoText.color = textcol;
+            ClipAmmoText.color = textcol;
             UpdateAmmoUI();
         }
-        else
-        {
+
+        if(!IsPlayer){
+            SendMessage("Defending", true);
+
+            yield return new WaitForSeconds(EquipedGun.ReloadTime);
+
+            Debug.Log(" Done Reloading");
             currentClipAmmo = EquipedGun.ClipAmmo;
             SendMessage("Defending", false);
         }
