@@ -45957,6 +45957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!65 &735552904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87105,6 +87106,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
+--- !u!114 &1370369484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1455329598071923036, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
+  m_PrefabInstance: {fileID: 1370369483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375063239
 GameObject:
   m_ObjectHideFlags: 0
@@ -94921,6 +94933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7f19787e00fb6459772f55f3811eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 20
 --- !u!65 &1473510817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -132471,7 +132484,7 @@ PrefabInstance:
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: AmmoText
       value: 
-      objectReference: {fileID: 1215949055}
+      objectReference: {fileID: 1370369484}
     - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: Crosshair
       value: 
@@ -132480,6 +132493,10 @@ PrefabInstance:
       propertyPath: EquipedGun
       value: 
       objectReference: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
+    - target: {fileID: 2209201617314789025, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
+      propertyPath: ClipAmmoText
+      value: 
+      objectReference: {fileID: 1215949055}
     - target: {fileID: 4134536348857622208, guid: 99a0f3557a5914f449cb2e6dd71161fc, type: 3}
       propertyPath: DeathUI
       value: 

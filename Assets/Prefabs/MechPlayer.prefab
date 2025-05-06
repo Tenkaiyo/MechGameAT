@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e2a24720f7b44493b3ce683fae8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquipedGun: {fileID: 11400000, guid: d406fa825bf74c74bb9368b4ad71dd35, type: 2}
+  EquipedGun: {fileID: 11400000, guid: 0244890154491fe428151a2981399b84, type: 2}
   IsPlayer: 1
   MuzzleFlash: {fileID: 4535808034879776690}
   BulletSpawnPoint: {fileID: 7289218756653267121}
