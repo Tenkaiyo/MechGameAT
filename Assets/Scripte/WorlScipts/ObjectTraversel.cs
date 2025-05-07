@@ -95,4 +95,14 @@ public class ObjectTraversel : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, Travelpoints[curPoint].position, TravSpeed * Time.deltaTime);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        for (int i = 0; i < Travelpoints.Length; i++)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(Travelpoints[i].position, 1f);
+        }
+
+    }
+
 }

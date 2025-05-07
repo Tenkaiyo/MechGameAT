@@ -123,13 +123,13 @@ public class ShootScript : MonoBehaviour
         }
     }
 
-    public void ShootEnemy(Vector3 Target)
+    public void ShootEnemy(Vector3 Target, bool attackstart)
     {
         if(isReloading)
         {
             return;
         }
-        if(currentClipAmmo <= 0)
+        if(currentClipAmmo <= 0 && !EquipedGun.InfiniteAmmo)
         {
             reloadCoroutine = StartCoroutine(Reload());
             return;
@@ -150,6 +150,11 @@ public class ShootScript : MonoBehaviour
         }
         if(EquipedGun.GunType == GunAttributes.GunTypes.Laser)
         {  
+            if(!attackstart || OldTargetRot == null)
+            {
+                OldTargetRot = (Target+ new Vector3(0,1f,0)) - RayTrans.position;
+            }
+
             if (Time.time < nextTimeToFire)
             {
                 //CurrTargetPos = Vector3.MoveTowards(CurrTargetPos,Target,Time.deltaTime * EquipedGun.BulletSpeed);
@@ -176,7 +181,8 @@ public class ShootScript : MonoBehaviour
 
         Debug.Log("LaserStart");
         Debug.Log(OldTargetRot);
-        while(Time.time < nextTimeToFire && currentAmmo > 0){
+        while(Time.time < nextTimeToFire && currentClipAmmo > 0)
+        {
             OldTargetRot = Vector3.MoveTowards(OldTargetRot.normalized, CurrTargetRot.normalized, Time.deltaTime * EquipedGun.BulletSpeed);            
             RaycastCalc(OldTargetRot);
             if(!EquipedGun.InfiniteAmmo)

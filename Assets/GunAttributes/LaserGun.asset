@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   GunType: 3
-  MinDamage: 30
-  MaxDamage: 30
+  MinDamage: 20
+  MaxDamage: 20
   nearDistance: 20
   farDistance: 40
   range: 100
   ReflectionCount: 0
   ReflectRange: 10
   fireRate: 5
-  BulletSpeed: 0.25
+  ReloadTime: 0.5
+  BulletSpeed: 0.6
   FireSpread: 0
   BulletsPerFire: 1
   MaxAmmo: 30
+  ClipAmmo: 15
   InfiniteAmmo: 1
   ImpactParticle: {fileID: 691528096246745178, guid: 1fb73360f17b22c438c25685b742cb6c, type: 3}
   BloodParticle: {fileID: 5255749276354896226, guid: 41818c4aaf646084aaa1669e0defc1d8, type: 3}

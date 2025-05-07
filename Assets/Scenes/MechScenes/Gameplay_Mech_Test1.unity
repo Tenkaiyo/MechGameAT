@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1132817203}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1629,6 +1629,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 411858287083038343, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
+      propertyPath: radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 411858287083038343, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 411858287083038343, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -2194,6 +2202,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.1
@@ -9555,6 +9567,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4
@@ -12537,6 +12553,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.85
@@ -13688,6 +13708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunEnemyTest
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.53503
@@ -14088,6 +14112,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16
@@ -16815,6 +16843,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.9
@@ -18312,7 +18344,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -28017,6 +28049,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.58
@@ -32186,6 +32222,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.81
@@ -32608,6 +32648,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.61
@@ -34643,6 +34687,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105047369030859223, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
+      propertyPath: EquipedGun
+      value: 
+      objectReference: {fileID: 11400000, guid: eea36cf1345b1dc4f95b3b319b87237b, type: 2}
     - target: {fileID: 4675254279997475289, guid: ab57dd99838ed3742a5e68cc1f259c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.3
@@ -34913,10 +34961,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 411858287083038343, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 411858287083038343, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1768109627}
@@ -34979,10 +35023,6 @@ PrefabInstance:
     - target: {fileID: 5493245678655246616, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
       propertyPath: m_Name
       value: Ramiel (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493245678655246616, guid: e0ccb181a77b1854791b7b4767741a16, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -90,14 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavAgent: {fileID: 0}
-  radius: 15
+  radius: 10
   angle: 360
-  distance: 10
+  distance: 8
   rotationSpeed: 30
   patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -111,6 +108,8 @@ MonoBehaviour:
     m_Bits: 1
   RaycastTrans: {fileID: 4580264401601481130}
   ShootScr: {fileID: 2535218266616012715}
+  defensive: 0
+  attacking: 0
 --- !u!114 &2535218266616012715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +131,7 @@ MonoBehaviour:
     m_Bits: 257
   RayTrans: {fileID: 4580264401601481130}
   AmmoText: {fileID: 0}
+  ClipAmmoText: {fileID: 0}
   Crosshair: {fileID: 0}
 --- !u!135 &1860314073807687146
 SphereCollider:
