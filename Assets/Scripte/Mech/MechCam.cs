@@ -30,6 +30,9 @@ public class MechCam : MonoBehaviour
     float normFov, currFov, maxFov = 90f, additionalFov = 5f;
     #endregion
 
+    [Header("UI")]
+    public GameObject Crosshair;
+
     [Header("Cam rotation")]
     #region
     public InputAction MouseMove;
@@ -78,11 +81,13 @@ public class MechCam : MonoBehaviour
 
         if(AimButton.ReadValue<float>() == 1f)
         {
+            Crosshair.SetActive(true);
             CamParX.localPosition = new Vector3(CamSideDist, 0, 0);
             camdist = CamDistanceAim;
         }else{
-             CamParX.localPosition = Vector3.zero;
-             camdist = CamDistance;
+            Crosshair.SetActive(false);
+            CamParX.localPosition = Vector3.zero;
+            camdist = CamDistance;
         }
 
 

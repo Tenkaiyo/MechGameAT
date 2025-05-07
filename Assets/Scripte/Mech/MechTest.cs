@@ -67,6 +67,7 @@ public class MechTest : MonoBehaviour
     #region
     public InputAction PlayerMovement;
     public InputAction DashButton;
+    bool stilldashing;
     public InputAction DodgeButton;
     public InputAction ShootButton;
     public bool shooting;
@@ -176,14 +177,20 @@ public class MechTest : MonoBehaviour
 
         #region Dash
         //Dash
-        if(DashButton.ReadValue<float>() == 1f && Currfuel > 0f)
+        if(DashButton.ReadValue<float>() == 0f && stilldashing == true)
+        {
+            stilldashing = false;
+        }
+        if(DashButton.ReadValue<float>() == 1f && Currfuel > 0f && !stilldashing)
         {
             if(movement != Vector3.zero)
             {
                 Currfuel -= Time.deltaTime;
                 resetfueltimer = fueldelay;
-                if(Currfuel <= 0)
+                if(Currfuel <= 0){
+                    stilldashing = true;
                     resetfueltimer = fueldelayMax;
+                }
                 UpdateFuelUI();
                 Vector3 groundedBoostVelocity = Vector3.ProjectOnPlane(movement,groundNormal.normalized);
                 rb.AddForce(groundedBoostVelocity * DashSpeed, ForceMode.Acceleration);
@@ -203,7 +210,7 @@ public class MechTest : MonoBehaviour
         RotateModel();
 
         //Dodge
-        if(DodgeButton.ReadValue<float>() == 1f && candodge && Currfuel > 0f)
+        if(DodgeButton.ReadValue<float>() == 1f && candodge && Currfuel > DodgeCost/2f)
         {
             StartCoroutine(Dodge());
             return;
@@ -250,7 +257,7 @@ public class MechTest : MonoBehaviour
 
     void Shooting()
     {
-        if(ShootButton.ReadValue<float>() == 1f && !dodging){
+        if(AimButton.ReadValue<float>() == 1f && ShootButton.ReadValue<float>() == 1f && !dodging){
             shooting = true;
             Shootscr.Shoot();
         }

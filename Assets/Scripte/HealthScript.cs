@@ -87,7 +87,7 @@ public class HealthScript : MonoBehaviour
     {
         if(HurtUI != null)
         {
-            HurtTimer += damage / 100f;
+            HurtTimer += damage / 50f;
         }
     }
 
