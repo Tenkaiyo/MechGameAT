@@ -238,11 +238,11 @@ public class MechTest : MonoBehaviour
 
     void RotateModel()
     {
-        if (movement != Vector3.zero && (AimButton.ReadValue<float>() < 1f || ShootButton.ReadValue<float>() < 1f))
+        if (movement != Vector3.zero && (AimButton.ReadValue<float>() < 1f))
         {
             MechModel.transform.rotation = Quaternion.Slerp(MechModel.transform.rotation, Quaternion.LookRotation(new Vector3(movement.x, 0f, movement.z)), 5f * Time.deltaTime);
         }
-        if(AimButton.ReadValue<float>() == 1f || ShootButton.ReadValue<float>() == 1f || dodging)
+        if(AimButton.ReadValue<float>() == 1f || dodging)
         {
             //*if(MechModel.transform.rotation != CameraplanarRot)
             {

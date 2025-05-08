@@ -210,6 +210,22 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Debug Button
       m_Flags: 0
+    - m_Name: 
+      m_Id: 4f396456-bcf3-4f93-ae62-be676c939f7d
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debug Button
+      m_Flags: 0
+    - m_Name: 
+      m_Id: c1fde592-baee-4255-b833-7083a7498d57
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debug Button
+      m_Flags: 0
     m_Flags: 0
 --- !u!1 &2354397039675887772
 GameObject:

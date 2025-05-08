@@ -22533,22 +22533,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1256002438060685170, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256002438060685170, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1455329598071923036, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2146700346743553513, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2730905055043031716, guid: 25d2bfe393e33de469985a4a43680314, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

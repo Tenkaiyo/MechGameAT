@@ -205,6 +205,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Mouse Move
       m_Flags: 0
+    - m_Name: 
+      m_Id: 290bf46d-2e51-4fc5-88e2-aac81a355869
+      m_Path: <Gamepad>/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Move
+      m_Flags: 0
     m_Flags: 0
 --- !u!1 &8558079737976323644
 GameObject:
@@ -336,6 +344,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 8
+    - m_Name: 
+      m_Id: 5b9e8395-1a7a-4fb5-b39b-9141569e90fb
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Movement
+      m_Flags: 0
     m_Flags: 0
   SprintMove:
     m_Name: Sprint Move
@@ -348,6 +364,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 9dd45e03-cf30-4f09-8e37-3ba199ebbd05
       m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Sprint Move
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 88cd251c-0a16-4369-8d0f-3029880db1b9
+      m_Path: <Gamepad>/buttonWest
       m_Interactions: 
       m_Processors: 
       m_Groups: 

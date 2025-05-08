@@ -100,8 +100,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474897936275087906}
-  m_LocalRotation: {x: -0.2797006, y: -0.16649736, z: -0.04931878, w: 0.9442531}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.2840153, y: 0, z: 0, w: 0.95881975}
+  m_LocalPosition: {x: 0, y: 0, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,11 +110,11 @@ RectTransform:
   - {fileID: 2056964518288534422}
   - {fileID: 18413601423187180}
   m_Father: {fileID: 6623745249928679037}
-  m_LocalEulerAnglesHint: {x: -33, y: -20, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 320, y: 80}
-  m_SizeDelta: {x: 535, y: 40}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 50, y: 80}
+  m_SizeDelta: {x: -1100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7049636042217314187
 MonoBehaviour:
@@ -197,11 +197,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6623745249928679037}
+  m_Father: {fileID: 6397552915103117519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -60, y: 120}
+  m_AnchoredPosition: {x: 120, y: 70}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1570229325133788472
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
-    m_FontStyle: 3
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
@@ -730,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1962464916743197130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4802082873534187301}
-  m_LocalRotation: {x: -0.2797006, y: -0.16649736, z: -0.04931878, w: 0.9442531}
+  m_LocalRotation: {x: 0.2797005, y: -0.16649738, z: 0.049318757, w: 0.94425315}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -937,10 +937,10 @@ RectTransform:
   - {fileID: 3087103705666399086}
   - {fileID: 5933133350658970287}
   m_Father: {fileID: 6623745249928679037}
-  m_LocalEulerAnglesHint: {x: -33, y: -20, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: -20, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 330, y: 130}
+  m_AnchoredPosition: {x: 330, y: 80}
   m_SizeDelta: {x: 535, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7105846173381492011
@@ -1095,16 +1095,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6921563549270267079}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.2797005, y: 0.16649729, z: -0.04931873, w: 0.94425315}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1256002438060685170}
   m_Father: {fileID: 6623745249928679037}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: 20, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -280, y: 100}
+  m_AnchoredPosition: {x: -280, y: 80}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1894750959662027671
@@ -1138,7 +1139,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 80
-    m_FontStyle: 3
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
@@ -1277,7 +1278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7722902027608460239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1523,7 +1524,6 @@ RectTransform:
   - {fileID: 6749970906645267860}
   - {fileID: 6753986409101390908}
   - {fileID: 6397552915103117519}
-  - {fileID: 1256002438060685170}
   - {fileID: 8849814311524421174}
   - {fileID: 3795536646913378023}
   - {fileID: 468084335698577723}
