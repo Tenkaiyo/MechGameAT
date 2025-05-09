@@ -237,15 +237,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 50a6e92e-7f2a-4ea9-a902-868c1196973a
-      m_Path: <Gamepad>/leftTrigger
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Aim Button
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 80d961de-a5a9-45e2-98a0-ace5d07170d4
-      m_Path: <Gamepad>/leftShoulder
+      m_Path: <Gamepad>/rightTrigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -713,7 +705,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 80d67cf0-7cbd-4e5f-a4c5-722ae12237ed
-      m_Path: <Gamepad>/buttonSouth
+      m_Path: <Gamepad>/leftTrigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -738,7 +730,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: b29640c6-fb8d-43a4-846c-2ecd90a98cfb
-      m_Path: <Gamepad>/buttonWest
+      m_Path: <Gamepad>/leftShoulder
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -769,14 +761,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Shoot Button
       m_Flags: 0
-    - m_Name: 
-      m_Id: 30dfa84f-aa9c-458e-8069-0a13658d733a
-      m_Path: <Gamepad>/rightTrigger
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Button
-      m_Flags: 0
     m_Flags: 0
   shooting: 0
   AimButton:
@@ -796,16 +780,8 @@ MonoBehaviour:
       m_Action: Aim Button
       m_Flags: 0
     - m_Name: 
-      m_Id: a9b44fa8-a00c-45b2-82eb-7d7d8a193047
-      m_Path: <Gamepad>/leftShoulder
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Aim Button
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 64270430-02d6-4410-9d12-8fde82d08f6b
-      m_Path: <Gamepad>/leftTrigger
+      m_Id: 0ddea1d7-f47c-4551-a85c-00b40e5dd323
+      m_Path: <Gamepad>/rightTrigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 

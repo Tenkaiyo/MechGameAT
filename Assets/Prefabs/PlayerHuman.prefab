@@ -371,7 +371,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 88cd251c-0a16-4369-8d0f-3029880db1b9
-      m_Path: <Gamepad>/buttonWest
+      m_Path: <Gamepad>/leftTrigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 
